@@ -7,17 +7,33 @@ public class MovementSystem : ComponentSystem
 {
     struct Components
     {
-        public MovementComponent movementC;
-        public Transform transform;
+        public readonly int Length;
+        public ComponentArray<MovementComponent> movementC;
+        public ComponentArray<Transform> transform;
+        public EntityArray entities;
     }
+
+    [Inject] private Components components;
 
     protected override void OnUpdate()
     {
         float deltaTime = Time.deltaTime;
 
-        foreach (var entity in GetEntities<Components>())
+        for (int i = 0; i < components.Length; i++)
         {
-            entity.transform.position += entity.transform.forward * entity.movementC.movementSpeed * deltaTime;
+            // Setup
+            var entity = components.entities[i];
+            var movementC = components.movementC[i];
+            var transform = components.transform[i];
+
+            // Functionality
+            transform.position += transform.forward * movementC.movementSpeed * deltaTime;
+
         }
+
+        //foreach (var entity in GetEntities<Components>())
+        //{
+        //    entity.transform.position += entity.transform.forward * entity.movementC.movementSpeed * deltaTime;
+        //}
     }
 }

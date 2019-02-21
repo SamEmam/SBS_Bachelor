@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementComponent : MonoBehaviour
+public class LifespanComponent : MonoBehaviour
 {
-    public float movementSpeed = 5f;
+    public float lifespan = 5f;
 }
