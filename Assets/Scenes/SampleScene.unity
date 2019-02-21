@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 1
-  fireCountdown: 0.5
+  fireCountdown: 0
   shotPrefab: {fileID: 3207704226029624589, guid: b6238668d0d5ed14a803714f84d9033c,
     type: 3}
   firePoint: {fileID: 412234841}
