@@ -1,8 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Entities;
+using System;
 
-public class DamageComponent : MonoBehaviour
+
+[Serializable]
+public struct DamageData : IComponentData
 {
-    public int damage = 20;
+    public int damage;
 }
+
+public class DamageComponent : ComponentDataProxy<DamageData>
+{
+
+}
+    

@@ -7,7 +7,7 @@ public class DeathSystem : ComponentSystem
 {
     struct Components
     {
-        public HealthComponent healthC;
+        public HealthData healthC;
         public DeathComponent deathC;
         public Transform transform;
     }

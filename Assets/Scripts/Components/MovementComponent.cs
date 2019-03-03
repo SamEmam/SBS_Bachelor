@@ -1,8 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Entities;
+using System;
 
-public class MovementComponent : MonoBehaviour
+
+[Serializable]
+public struct MovementData : IComponentData
 {
-    public float movementSpeed = 5f;
+    public int movementSpeed;
+}
+
+public class MovementComponent : ComponentDataProxy<MovementData>
+{
+
 }

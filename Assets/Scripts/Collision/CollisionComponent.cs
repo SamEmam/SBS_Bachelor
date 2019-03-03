@@ -3,33 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
 
+public class CollisionComponent : MonoBehaviour
+{
+    Entity entity;
+    EntityManager entityManager;
 
-// https://github.com/Unity-Technologies/EntityComponentSystemSamples/issues/45
-
-public struct CollisionComponent : IComponentData {
-    public Entity OtherEntity;
-    public Overlap state;
-    public CollisionData Collision;
-}
-
-
-public struct CollisionData {
-    public CollisionData (Collision2D collision) {
-        // deconstruct any collision data into blittable data here
-        Contact = collision.contactCount > 0 ? new Contact(collision.GetContact(0)) : new Contact { };
-    }
-    public Contact Contact;
-
-}
-
-public struct Contact {
-    public Contact (ContactPoint contactPoint) {
-        Point = contactPoint.point;
-        RelativeVelocity = contactPoint.relativeVelocity;
-        Normal = contactPoint.normal;
+    void OnEnable()
+    {
+        entity = gameObject.GetComponent<GameObjectEntity>().Entity;
+        entityManager = World.Active.GetExistingManager<EntityManager>();
     }
 
-    public Vector3 Point;
-    public Vector3 RelativeVelocity;
-    public Vector3 Normal;
+    void OnCollisionEnter(Collision collision)
+    {
+        AddOrUpdateImpact(collision, CollisionState.Enter);
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        AddOrUpdateImpact(collision, CollisionState.Stay);
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        AddOrUpdateImpact(collision, CollisionState.Exit);
+    }
+
+    void AddOrUpdateImpact(Collision collision, CollisionState newState)
+    {
+        var collidingEntity = collision.gameObject.GetComponent<GameObjectEntity>().Entity;
+
+        if (!entityManager.HasComponent<CollisionDataComponent>(collidingEntity))
+        {
+            entityManager.AddComponent(collidingEntity, typeof(CollisionDataComponent));
+        }
+
+        entityManager.SetComponentData<CollisionDataComponent>(collidingEntity, new CollisionDataComponent
+        {
+            State = newState,
+            OtherEntity = entity,
+            Collision = new CollisionData(collision)
+        });
+    }
 }

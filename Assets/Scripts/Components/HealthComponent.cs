@@ -1,8 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Entities;
+using System;
 
-public class HealthComponent : MonoBehaviour
+
+[Serializable]
+public struct HealthData : IComponentData
 {
     public int health;
+}
+
+public class HealthComponent : ComponentDataProxy<HealthData>
+{
+
 }
