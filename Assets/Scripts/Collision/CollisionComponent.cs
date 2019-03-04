@@ -16,20 +16,20 @@ public class CollisionComponent : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        AddOrUpdateImpact(collision, CollisionState.Enter);
+        AddOrUpdateCollision(collision, CollisionState.Enter);
     }
 
     void OnCollisionStay(Collision collision)
     {
-        AddOrUpdateImpact(collision, CollisionState.Stay);
+        AddOrUpdateCollision(collision, CollisionState.Stay);
     }
 
     void OnCollisionExit(Collision collision)
     {
-        AddOrUpdateImpact(collision, CollisionState.Exit);
+        AddOrUpdateCollision(collision, CollisionState.Exit);
     }
 
-    void AddOrUpdateImpact(Collision collision, CollisionState newState)
+    void AddOrUpdateCollision(Collision collision, CollisionState newState)
     {
         var collidingEntity = collision.gameObject.GetComponent<GameObjectEntity>().Entity;
 
