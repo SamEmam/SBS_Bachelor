@@ -8,7 +8,7 @@ public class MovementSystem : ComponentSystem
     struct Components
     {
         public readonly int Length;
-        public ComponentArray<MovementComponent> movementC;
+        public ComponentDataArray<MovementData> movementC;
         public ComponentArray<Transform> transform;
         public EntityArray entities;
     }
@@ -25,15 +25,11 @@ public class MovementSystem : ComponentSystem
             var entity = components.entities[i];
             var movementC = components.movementC[i];
             var transform = components.transform[i];
-
+            
             // Functionality
             transform.position += transform.forward * movementC.movementSpeed * deltaTime;
 
         }
-
-        //foreach (var entity in GetEntities<Components>())
-        //{
-        //    entity.transform.position += entity.transform.forward * entity.movementC.movementSpeed * deltaTime;
-        //}
+        
     }
 }

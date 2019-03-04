@@ -6,12 +6,13 @@ using System;
 
 
 [Serializable]
-public struct MovementData : IComponentData
+public struct DamageData : IComponentData
 {
-    public int movementSpeed;
+    public int damage;
 }
 
-public class MovementComponent : ComponentDataProxy<MovementData>
+public class DamageComponent : ComponentDataProxy<DamageData>
 {
 
 }
+    
