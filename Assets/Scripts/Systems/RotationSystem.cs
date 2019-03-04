@@ -7,19 +7,30 @@ public class RotationSystem : ComponentSystem
 {
     struct Components
     {
-        public RotationComponent rotationC;
-        public Transform transform;
+        public readonly int Length;
+        public ComponentArray<RotationComponent> rotationC;
+        public ComponentArray<Transform> transform;
+        public EntityArray entities;
     }
+
+    [Inject] private Components components;
 
     protected override void OnUpdate()
     {
         float deltaTime = Time.deltaTime;
 
-        foreach (var entity in GetEntities<Components>())
+        for (int i = 0; i < components.Length; i++)
         {
-            var pos = entity.rotationC.target.position - entity.transform.position;
+            // Setup
+            var entity = components.entities[i];
+            var rotationC = components.rotationC[i];
+            var transform = components.transform[i];
+
+            // Functionality
+
+            var pos = rotationC.target.position - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(pos);
-            entity.transform.rotation = Quaternion.Slerp(entity.transform.rotation, targetRotation, entity.rotationC.rotationSpeed * deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationC.rotationSpeed * deltaTime);
         }
     }
 }
