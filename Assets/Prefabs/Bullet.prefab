@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7553542940959003892}
   - component: {fileID: 5704745124602339897}
   - component: {fileID: 6454733983186623958}
-  - component: {fileID: 8872030313372608609}
+  - component: {fileID: 3237929794630612935}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedData:
     damage: 1
---- !u!114 &8872030313372608609
+--- !u!114 &3237929794630612935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

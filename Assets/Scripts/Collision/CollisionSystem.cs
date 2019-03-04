@@ -26,6 +26,7 @@ public class CollisionSystem : ComponentSystem
                 {
                     health = data.healthC[i].health - EntityManager.GetComponentData<DamageData>(data.collisionDataC[i].OtherEntity).damage
                 });
+                
             }
         }
     }
