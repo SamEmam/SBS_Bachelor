@@ -25,7 +25,7 @@ public class MovementSystem : ComponentSystem
             var entity = components.entities[i];
             var movementC = components.movementC[i];
             var transform = components.transform[i];
-
+            
             // Functionality
             transform.position += transform.forward * movementC.movementSpeed * deltaTime;
 

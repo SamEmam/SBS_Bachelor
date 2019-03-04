@@ -20,7 +20,7 @@ public class CollisionSystem : ComponentSystem
     {
         for (var i = 0; i < data.Length; i++)
         {
-            if (EntityManager.HasComponent<DamageComponent>(data.collisionDataC[i].OtherEntity))
+            if (EntityManager.HasComponent<DamageData>(data.collisionDataC[i].OtherEntity))
             {
                 EntityManager.SetComponentData<HealthData>(data.Entity[i], new HealthData
                 {

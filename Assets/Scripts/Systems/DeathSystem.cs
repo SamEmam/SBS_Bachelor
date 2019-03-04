@@ -7,25 +7,39 @@ public class DeathSystem : ComponentSystem
 {
     struct Components
     {
-        public HealthData healthC;
-        public DeathComponent deathC;
-        public Transform transform;
+        public readonly int Length;
+        public ComponentDataArray<HealthData> healthC;
+        public ComponentDataArray<DeathData> deathC;
+        public ComponentArray<Transform> transform;
+        public EntityArray entities;
     }
+
+    [Inject] private Components components;
 
     protected override void OnUpdate()
     {
-        
-        foreach (var entity in GetEntities<Components>())
+
+        for (int i = 0; i < components.Length; i++)
         {
-            if (entity.healthC.health <= 0 && !entity.deathC.isDead)
+            // Setup
+            var entity = components.entities[i];
+            var healthC = components.healthC[i];
+            var deathC = components.deathC[i];
+            var transform = components.transform[i];
+
+            // Functionality
+            if (healthC.health <= 0 && deathC.isDead == 0)
             {
-                entity.deathC.isDead = true;
+                deathC.isDead = 1;
 
                 // temp death
-                Object.Destroy(entity.transform.gameObject);
-                var explosion = Object.Instantiate(entity.deathC.deathEffect, entity.transform.position, Quaternion.identity);
+                Object.Destroy(transform.gameObject);
+                //var explosion = Object.Instantiate(deathC.deathEffect, transform.position, Quaternion.identity);
 
             }
         }
+
+
+        
     }
 }

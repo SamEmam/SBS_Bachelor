@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
+using Unity.Mathematics;
 
 public struct CollisionDataComponent : IComponentData
 {
@@ -30,6 +31,6 @@ public struct Contact
         Normal = contactPoint.normal;
     }
 
-    public Vector3 Point;
-    public Vector3 Normal;
+    public float3 Point;
+    public float3 Normal;
 }
