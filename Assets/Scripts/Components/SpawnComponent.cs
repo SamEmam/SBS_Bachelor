@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SpawnComponent : MonoBehaviour
 {
-    public GameObject asteroidPrefab;
-    public Vector3 asteroidSpawnPosition;
-    public Vector3 spawnPosition;
-    public int numberOfAsteroids;
+    public int numberOfSpawns;
+    public float minDistance;
+    public float maxDistance;
 }

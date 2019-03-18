@@ -7,52 +7,36 @@ public class SpawnSystem : ComponentSystem
 {
     struct Components
     {
-        public GameObject[] spawnPrefab;
-        public GameObject asteroidPrefab;
-        public Vector3 asteroidSpawnPosition;
-        public Vector3 spawnPosition;
-        public int numberOfAsteroids;
+        public readonly int Length;
+        public ComponentArray<SpawnComponent> spawnC;
+        public ComponentArray<AsteroidComponent> asteroidC;
+        public ComponentArray<Transform> transfrom;
+        public EntityArray entities;
     }
 
     [Inject] private Components components;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        SpawnAsteroid(components.numberOfAsteroids);
-    }
-
-    private void SpawnAsteroid(int numberOfAsteroids)
-    {
-        var minSize = 0.2f;
-        var maxSize = 1.5f;
-
-        var minDistance = 3.0f;
-        var maxDistance = 15.0f;
-
-        for (var i = 0; i < numberOfAsteroids; i++)
-        {
-            var position = components.asteroidSpawnPosition;
-            var size = Random.Range(minSize, maxSize);
-            var prefab = components.asteroidPrefab;
-
-            for (var j = 0; j < 100; j++)
-            {
-                position = Random.insideUnitSphere * (minDistance + (maxDistance - minDistance) * Random.value);
-                position += components.asteroidSpawnPosition;
-                if (!Physics.CheckSphere(position, size / 2.0f))
-                {
-                    break;
-                }
-            }
-            Object.Instantiate(prefab, position, Random.rotation);
-            //var instatiate = Instantiate(prefab, position, Random.rotation);
-            //instatiate.transform.localScale = new Vector3(size, size, size);
-        }
-    }
+    
 
     protected override void OnUpdate()
     {
-        throw new System.NotImplementedException();
+        for (int i = 0; i < components.Length; i++)
+        {
+            // Setup
+            var entity = components.entities[i];
+            var spawnC = components.spawnC[i];
+            var asteroidC = components.asteroidC[i];
+            var transform = components.transfrom[i];
+
+            // Functionality
+            for (int j = 0; j < spawnC.numberOfSpawns; j++)
+            {
+                var asteroid = Object.Instantiate(asteroidC.asteroidPrefab, transform.position, transform.rotation);                            // Instantiate asteroid
+                asteroid.transform.position = Random.insideUnitSphere * (spawnC.minDistance + (spawnC.maxDistance - spawnC.minDistance));       // Set position within sphere
+                var size = Random.Range(asteroidC.minSize, asteroidC.maxSize);                                                                  // Randomize size
+                asteroid.transform.localScale = new Vector3(size, size, size);                                                                  // Set size
+                asteroid.transform.rotation = Random.rotation;                                                                                  // Randomize rotation
+                spawnC.numberOfSpawns--;                                                                                                        // Count down spawned asteroid
+            }
+        }
     }
 }
