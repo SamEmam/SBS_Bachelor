@@ -16,9 +16,9 @@ public class SpawnSystem : ComponentSystem
 
     [Inject] private Components components;
 
-
     protected override void OnUpdate()
     {
+        int counter = 0;
         for (int i = 0; i < components.Length; i++)
         {
             // Setup
@@ -28,17 +28,22 @@ public class SpawnSystem : ComponentSystem
 
             // Functionality
 
+            Vector3 startPos = transform.position;
 
-            for (int j = 0; j < spawnC.numberOfSpawns; j++)
+            for (int j = 0; j < spawnC.prefabs.Length; j++)
             {
-                var pos = spawnC.transform.position = Random.insideUnitSphere * (spawnC.minDistance + (spawnC.maxDistance - spawnC.minDistance));       // Set position within sphere
-                var gameobject = Object.Instantiate(spawnC.prefab, transform.position, transform.rotation);                                             // Instantiate prefab
-                gameobject.transform.rotation = Random.rotation;                                                                                        // Randomize prefab
-                spawnC.numberOfSpawns--;                                                                                                                // Count down number of spawns
-                if (spawnC.numberOfSpawns <= 0)
+                for (int k = 0; k < spawnC.numberOfSpawns[j]; k++)
                 {
-                    Object.Destroy(spawnC.gameObject);                                                                                                  // Remove component
+                    transform.position = Random.insideUnitSphere * (spawnC.minDistance + (spawnC.maxDistance - spawnC.minDistance)) + startPos;       // Set position within sphere
+                    var gameobject = Object.Instantiate(spawnC.prefabs[j], transform.position, transform.rotation);                                         // Instantiate prefab
+                    gameobject.transform.rotation = Random.rotation;                                                                                        // Randomize prefab
+                    counter++;
                 }
+            }
+            
+            if (counter >= spawnC.numberOfSpawns[spawnC.prefabs.Length-1])
+            {
+                Object.Destroy(spawnC.gameObject);
             }
         }
     }

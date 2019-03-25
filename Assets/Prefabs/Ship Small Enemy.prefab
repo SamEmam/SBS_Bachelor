@@ -142,9 +142,11 @@ GameObject:
   - component: {fileID: 5643412845205751710}
   - component: {fileID: 5643412845205751683}
   - component: {fileID: 5643412845205751711}
+  - component: {fileID: 7117999287483374689}
+  - component: {fileID: 8109218637734006542}
   m_Layer: 0
-  m_Name: Ship
-  m_TagString: Untagged
+  m_Name: Ship Small Enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +160,7 @@ Transform:
   m_GameObject: {fileID: 5643412845205751684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 5643412846055911915}
   - {fileID: 5643412846576781835}
@@ -192,7 +194,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ee686cc2e807bff47b1668f56b9154ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    movementSpeed: 5
+    movementSpeed: 10
 --- !u!114 &5643412845205751708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    health: 100
+    health: 50
 --- !u!114 &5643412845205751709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  rotationSpeed: 1
+  rotationSpeed: 1.5
 --- !u!114 &5643412845205751711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,7 +320,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    closestDistance: 1000
+    closestDistance: 10000
+--- !u!54 &7117999287483374689
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643412845205751684}
+  serializedVersion: 2
+  m_Mass: 25
+  m_Drag: 1
+  m_AngularDrag: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8109218637734006542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643412845205751684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24dc4dcb4e6c8413191e0f10871dd0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedData:
+    faction: 1
 --- !u!1 &5643412845963001170
 GameObject:
   m_ObjectHideFlags: 0
