@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AsteroidComponent : MonoBehaviour
 {
-    public GameObject asteroidPrefab;
+    public bool hasSetSize = false;
     public float minSize;
     public float maxSize;
 }

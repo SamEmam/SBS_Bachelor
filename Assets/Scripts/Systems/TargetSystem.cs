@@ -9,7 +9,7 @@ public class TargetSystem : ComponentSystem
     {
         public readonly int Length;
         public ComponentArray<RotationComponent> rotationC;
-        public ComponentDataArray<TargetData> targetC;
+        public ComponentDataArray<ClosestData> closestC;
         public ComponentArray<Transform> transform;
         public EntityArray entities;
     }
@@ -25,11 +25,11 @@ public class TargetSystem : ComponentSystem
             // Setup
             var entity = components.entities[i];
             var rotationC = components.rotationC[i];
-            var targetC = components.targetC[i];
+            var closestC = components.closestC[i];
             var transform = components.transform[i];
 
             // Functionality
-            targetC.closestDistance = 1000f;
+            closestC.closestDistance = 1000f;
 
             if (rotationC.target)
             {
@@ -42,7 +42,7 @@ public class TargetSystem : ComponentSystem
                 // Setup
                 var otherEntity = components.entities[j];
                 var otherRotationC = components.rotationC[j];
-                var otherTargetC = components.targetC[j];
+                var otherClosestC = components.closestC[j];
                 var otherTransform = components.transform[j];
 
                 // Functionality
@@ -60,18 +60,18 @@ public class TargetSystem : ComponentSystem
 
                     // If distance between other ship is shorter than closest
                     // Sets new closest enemy
-                    if (dist < targetC.closestDistance)
+                    if (dist < closestC.closestDistance)
                     {
-                        targetC.closestDistance = dist;
+                        closestC.closestDistance = dist;
                         rotationC.target = otherTransform.transform;
                     }
 
                     // If othership is close, it is saved as lastEnemy, and cannot be targeted until new lastEnemy
                     // ClosestDist reset
-                    if (targetC.closestDistance < 40)
+                    if (closestC.closestDistance < 40)
                     {
                         lastEnemy = rotationC.target;
-                        targetC.closestDistance = 1000f;
+                        closestC.closestDistance = 1000f;
                     }
                 }
             }
