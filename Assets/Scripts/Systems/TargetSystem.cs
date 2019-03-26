@@ -9,7 +9,8 @@ public class TargetSystem : ComponentSystem
     {
         public readonly int Length;
         public ComponentArray<RotationComponent> rotationC;
-        public ComponentDataArray<TargetData> targetC;
+        public ComponentDataArray<ClosestData> closestC;
+        public ComponentDataArray<FactionData> factionC;
         public ComponentArray<Transform> transform;
         public EntityArray entities;
     }
@@ -25,11 +26,12 @@ public class TargetSystem : ComponentSystem
             // Setup
             var entity = components.entities[i];
             var rotationC = components.rotationC[i];
-            var targetC = components.targetC[i];
+            var closestC = components.closestC[i];
+            var factionC = components.factionC[i];
             var transform = components.transform[i];
 
             // Functionality
-            targetC.closestDistance = 1000f;
+            closestC.closestDistance = Mathf.Infinity;
 
             if (rotationC.target)
             {
@@ -42,15 +44,21 @@ public class TargetSystem : ComponentSystem
                 // Setup
                 var otherEntity = components.entities[j];
                 var otherRotationC = components.rotationC[j];
-                var otherTargetC = components.targetC[j];
+                var otherClosestC = components.closestC[j];
+                var otherFactionC = components.factionC[i];
                 var otherTransform = components.transform[j];
 
                 // Functionality
-                
+
                 if (!lastEnemy)
                 {
                     lastEnemy = otherTransform.transform;
                 }
+
+                //if (factionC.faction == otherFactionC.faction)
+                //{
+                //    return;
+                //}
 
                 // If this ship is not other ship, and if othership is not our current target
                 if (transform != otherTransform && otherTransform.transform != lastEnemy)
@@ -60,18 +68,18 @@ public class TargetSystem : ComponentSystem
 
                     // If distance between other ship is shorter than closest
                     // Sets new closest enemy
-                    if (dist < targetC.closestDistance)
+                    if (dist < closestC.closestDistance)
                     {
-                        targetC.closestDistance = dist;
+                        closestC.closestDistance = dist;
                         rotationC.target = otherTransform.transform;
                     }
 
                     // If othership is close, it is saved as lastEnemy, and cannot be targeted until new lastEnemy
                     // ClosestDist reset
-                    if (targetC.closestDistance < 40)
+                    if (closestC.closestDistance < 40)
                     {
                         lastEnemy = rotationC.target;
-                        targetC.closestDistance = 1000f;
+                        closestC.closestDistance = Mathf.Infinity;
                     }
                 }
             }

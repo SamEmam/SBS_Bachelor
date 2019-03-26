@@ -5,12 +5,12 @@ using Unity.Entities;
 using System;
 
 [Serializable]
-public struct TargetData : IComponentData
+public struct ClosestData : IComponentData
 {
     public float closestDistance;
 }
 
-public class TargetComponent : ComponentDataProxy<TargetData>
+public class ClosestComponent : ComponentDataProxy<ClosestData>
 {
 
 }
