@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 1
   fireCountdown: 0
-  shotPrefab: {fileID: 3207704226029624589, guid: b6238668d0d5ed14a803714f84d9033c,
+  shotPrefab: {fileID: 3207704226029624589, guid: 28fbc31bcf8b7284badb7a32ae987504,
     type: 3}
   firePoint: {fileID: 5643412846557688897}
 --- !u!114 &5643412845088686325
@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 5643412845205751711}
   - component: {fileID: 5128400107613612613}
   - component: {fileID: 4404747808604662626}
+  - component: {fileID: 9045750574291311592}
   m_Layer: 0
   m_Name: Ship Enemy
   m_TagString: Enemy
@@ -252,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
+    fluidMovement: 1
     movementSpeed: 5
 --- !u!114 &5643412845205751708
 MonoBehaviour:
@@ -330,8 +332,8 @@ Rigidbody:
   m_GameObject: {fileID: 5643412845205751684}
   serializedVersion: 2
   m_Mass: 50
-  m_Drag: 1
-  m_AngularDrag: 1
+  m_Drag: 0.5
+  m_AngularDrag: 0.5
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -351,6 +353,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedData:
     faction: 1
+--- !u!114 &9045750574291311592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643412845205751684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a32dcf9331c1b47a5246b064242975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScore: 0
+  enemyScore: 2147483647
+  targetedBy: 0
+  tempTargetedBy: 0
 --- !u!1 &5643412845963001170
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 1
   fireCountdown: 0
-  shotPrefab: {fileID: 3207704226029624589, guid: b6238668d0d5ed14a803714f84d9033c,
+  shotPrefab: {fileID: 3207704226029624589, guid: 28fbc31bcf8b7284badb7a32ae987504,
     type: 3}
   firePoint: {fileID: 5643412846633508469}
 --- !u!1 &5643412846055911914

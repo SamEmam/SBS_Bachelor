@@ -110,7 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dc4dcb4e6c8413191e0f10871dd0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faction: 2
+  m_SerializedData:
+    faction: 0
 --- !u!114 &2175444183023378503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    damage: 10
+    damage: 25
 --- !u!114 &2828055671485024381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
+    fluidMovement: 0
     movementSpeed: 2
 --- !u!114 &4586849650067194845
 MonoBehaviour:

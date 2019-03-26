@@ -22,11 +22,13 @@ public class CollisionSystem : ComponentSystem
         {
             if (EntityManager.HasComponent<DamageData>(data.collisionDataC[i].OtherEntity))
             {
-                EntityManager.SetComponentData<HealthData>(data.Entity[i], new HealthData
+                if (EntityManager.GetComponentData<FactionData>(data.collisionDataC[i].OtherEntity).faction != EntityManager.GetComponentData<FactionData>(data.Entity[i]).faction)
                 {
-                    health = data.healthC[i].health - EntityManager.GetComponentData<DamageData>(data.collisionDataC[i].OtherEntity).damage
-                });
-                
+                    EntityManager.SetComponentData<HealthData>(data.Entity[i], new HealthData
+                    {
+                        health = data.healthC[i].health - EntityManager.GetComponentData<DamageData>(data.collisionDataC[i].OtherEntity).damage
+                    });
+                }
             }
         }
     }

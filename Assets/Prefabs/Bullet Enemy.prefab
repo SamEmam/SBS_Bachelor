@@ -18,8 +18,9 @@ GameObject:
   - component: {fileID: 5704745124602339897}
   - component: {fileID: 6454733983186623958}
   - component: {fileID: 3237929794630612935}
+  - component: {fileID: 1284534502966304554}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bullet Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ee686cc2e807bff47b1668f56b9154ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,7 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    movementSpeed: 10
+    fluidMovement: 0
+    movementSpeed: 50
 --- !u!114 &7553542940959003892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    damage: 1
+    damage: 25
 --- !u!114 &3237929794630612935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +180,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6b15e991eb2c84bbab06d573bce52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1284534502966304554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3207704226029624589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24dc4dcb4e6c8413191e0f10871dd0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedData:
+    faction: 1

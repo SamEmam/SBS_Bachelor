@@ -8,6 +8,7 @@ using System;
 [Serializable]
 public struct MovementData : IComponentData
 {
+    public int fluidMovement;
     public int movementSpeed;
 }
 

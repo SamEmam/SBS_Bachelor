@@ -9,6 +9,7 @@ public class MovementSystem : ComponentSystem
     {
         public readonly int Length;
         public ComponentDataArray<MovementData> movementC;
+        public ComponentArray<Rigidbody> rigidbody;
         public ComponentArray<Transform> transform;
         public EntityArray entities;
     }
@@ -24,12 +25,19 @@ public class MovementSystem : ComponentSystem
             // Setup
             var entity = components.entities[i];
             var movementC = components.movementC[i];
+            var rigidbody = components.rigidbody[i];
             var transform = components.transform[i];
-            
-            // Functionality
-            transform.position += transform.forward * movementC.movementSpeed * deltaTime;
 
+            // Functionality
+            // Strict movement or fluid movement
+            if (movementC.fluidMovement == 0)
+            {
+                transform.position += transform.forward * movementC.movementSpeed * deltaTime;
+            }
+            else
+            {
+                rigidbody.AddForce(transform.forward * movementC.movementSpeed * 75);
+            }
         }
-        
     }
 }
