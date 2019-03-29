@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 567167300191293640}
   - component: {fileID: 6303335153715911262}
   - component: {fileID: 6976654506226404418}
+  - component: {fileID: 285187184795931390}
   m_Layer: 0
   m_Name: Ship Player
   m_TagString: Player
@@ -370,6 +371,7 @@ MonoBehaviour:
   enemyScore: 2147483647
   targetedBy: 0
   tempTargetedBy: 0
+  isCloseEnoughToWaypoint: 1
 --- !u!96 &6976654506226404418
 TrailRenderer:
   serializedVersion: 2
@@ -474,6 +476,20 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &285187184795931390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643412845205751684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a8061ebefb22047ae114ab4d8bf6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoint: {fileID: 0}
+  maxDistFromWaypoint: 100
 --- !u!1 &5643412845963001170
 GameObject:
   m_ObjectHideFlags: 0

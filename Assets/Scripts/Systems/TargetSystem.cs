@@ -34,11 +34,7 @@ public class TargetSystem : ComponentSystem
 
             targetC.tempTargetedBy = 0;
             
-            // Temp setting target to itself, this should be changed to waypoint transform in future
-            if (!rotationC.target)
-            {
-                rotationC.target = transform;
-            }
+            
 
             // Functionality
 
@@ -55,10 +51,12 @@ public class TargetSystem : ComponentSystem
 
                 targetC.enemyScore = int.MaxValue;
 
+                
                 // Functionality
                 // Check if this ship is not equal to other ship and faction is not equal
-                if (transform != otherTransform && transform.tag != otherTransform.tag)
+                if (transform != otherTransform && transform.tag != otherTransform.tag && targetC.isCloseEnoughToWaypoint)
                 {
+                    
                     // Check if targeted by other ship
                     if (rotationC.target == otherRotationC.target)
                     {

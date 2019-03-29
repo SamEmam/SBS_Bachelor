@@ -370,6 +370,7 @@ MonoBehaviour:
   enemyScore: 2147483647
   targetedBy: 0
   tempTargetedBy: 0
+  isCloseEnoughToWaypoint: 1
 --- !u!96 &6546022673067708267
 TrailRenderer:
   serializedVersion: 2
