@@ -33,6 +33,12 @@ public class TargetSystem : ComponentSystem
             var transform = components.transform[i];
 
             targetC.tempTargetedBy = 0;
+            
+            // Temp setting target to itself, this should be changed to waypoint transform in future
+            if (!rotationC.target)
+            {
+                rotationC.target = transform;
+            }
 
             // Functionality
 
@@ -65,27 +71,32 @@ public class TargetSystem : ComponentSystem
 
                     // Check distance between this ship and other ship
                     var dist = Vector3.Distance(transform.position, otherTransform.position);
-                    switch (dist)
+                    if (dist < 50)
                     {
-                        case 1 when (dist < 50):
-                            targetC.enemyScore -= (int)(dist * 10);
-                            break;
-                        case 2 when (dist < 100):
-                            targetC.enemyScore -= (int)(dist * 4);
-                            break;
-                        case 3 when (dist < 300):
-                            targetC.enemyScore -= (int)(dist / 2);
-                            break;
-                        case 4 when (dist < 500):
-                            targetC.enemyScore -= (int)(dist);
-                            break;
-                        default:
-                            targetC.enemyScore -= (int)(dist * 2);
-                            break;
+                        targetC.enemyScore -= (int)(dist * 10);
+                    }
+                    else if (dist < 100)
+                    {
+                        targetC.enemyScore -= (int)(dist * 4);
+                    }
+                    else if (dist < 300)
+                    {
+                        targetC.enemyScore -= (int)(dist / 2);
+                    }
+                    else if (dist < 500)
+                    {
+                        targetC.enemyScore -= (int)(dist);
+                    }
+                    else
+                    {
+                        targetC.enemyScore -= (int)(dist * 2);
                     }
 
+                    // Distance to waypoint (temporarily just a zero vector)
+                    var distToWaypoint = Vector3.Distance(transform.position, Vector3.zero);
+
                     // Set new target
-                    if (targetC.enemyScore >= targetC.targetScore)
+                    if (targetC.enemyScore >= targetC.targetScore && distToWaypoint < 200)
                     {
                         targetC.targetScore = targetC.enemyScore;
                         rotationC.target = otherTransform;
