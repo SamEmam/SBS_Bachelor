@@ -33,10 +33,11 @@ public class TargetSystem : ComponentSystem
             var transform = components.transform[i];
 
             targetC.tempTargetedBy = 0;
-
+            
+            // Temp setting target to itself, this should be changed to waypoint transform in future
             if (!rotationC.target)
             {
-                rotationC.target = Vector3.zero;
+                rotationC.target = transform;
             }
 
             // Functionality
