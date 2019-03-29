@@ -8,22 +8,34 @@ public class LifespanSystem : ComponentSystem
 
     struct Components
     {
-        public LifespanComponent lifespanC;
+        public readonly int Length;
+        public ComponentArray<LifespanComponent> lifespanC;
     }
+
+    [Inject] private Components components;
 
     protected override void OnUpdate()
     {
         var deltatime = Time.deltaTime;
 
-        foreach (var entity in GetEntities<Components>())
+        for (int i = 0; i < components.Length; i++)
         {
-            if (entity.lifespanC.lifespan <= 0)
+            // Setup
+            var lifespanC = components.lifespanC[i];
+
+            // Functionality
+            if (lifespanC)
             {
-                Object.Destroy(entity.lifespanC.gameObject);
+                if (lifespanC.lifespan <= 0)
+                {
+                    Object.Destroy(lifespanC.gameObject);
+                }
+                else
+                {
+                    lifespanC.lifespan -= deltatime;
+                }
             }
 
-            entity.lifespanC.lifespan -= deltatime;
         }
     }
-
 }
