@@ -34,7 +34,6 @@ public class WaypointSystem : ComponentSystem
             var dist = Vector3.Distance(waypointC.waypoint.position, transform.position);
             if (dist > waypointC.maxDistFromWaypoint)
             {
-                Debug.Log("Name: " + transform.gameObject.name + " Distance: " + dist);
                 rotationC.target = waypointC.waypoint;
                 targetC.isCloseEnoughToWaypoint = false;
             }
