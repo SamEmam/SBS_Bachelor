@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class LifespanComponent : MonoBehaviour
 {
-    public float lifespan = 5f;
+    public float lifespan;
+    public GameObject explosionPrefab;
+    //public ParticleSystem ObjectParticles;
 }
