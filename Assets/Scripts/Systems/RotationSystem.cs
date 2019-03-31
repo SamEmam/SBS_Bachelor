@@ -29,10 +29,13 @@ public class RotationSystem : ComponentSystem
             var transform = components.transform[i];
 
             // Functionality
-
-            var pos = rotationC.target.position - transform.position;
-            Quaternion targetRotation = Quaternion.LookRotation(pos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationC.rotationSpeed * deltaTime);
+            if (rotationC.target)
+            {
+                var pos = rotationC.target.position - transform.position;
+                Quaternion targetRotation = Quaternion.LookRotation(pos);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationC.rotationSpeed * deltaTime);
+            }
+            
         }
     }
 }

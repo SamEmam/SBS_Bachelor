@@ -25,21 +25,25 @@ public class TargetInRangeSystem : ComponentSystem
             var transform = components.transform[i];
 
             // New Functionality
-            var directionToTarget = aimC.parentTransform.position - aimC.target.position;
-            var angle = Vector3.Angle(aimC.parentTransform.forward, directionToTarget);
+            if (aimC.target)
+            {
+                var directionToTarget = aimC.parentTransform.position - aimC.target.position;
+                var angle = Vector3.Angle(aimC.parentTransform.forward, directionToTarget);
 
+
+
+                if (Mathf.Abs(angle) > targetInRangeC.minRange && Mathf.Abs(angle) < targetInRangeC.maxRange && aimC.target.tag != "Waypoint")
+                {
+                    targetInRangeC.isInRange = true;
+                    //Debug.DrawLine(transform.position, aimC.target.position, Color.green);
+                }
+                else
+                {
+                    targetInRangeC.isInRange = false;
+                    //Debug.DrawLine(transform.position, aimC.target.position, Color.red);
+                }
+            }
             
-
-            if (Mathf.Abs(angle) > targetInRangeC.minRange && Mathf.Abs(angle) < targetInRangeC.maxRange && aimC.target.tag != "Waypoint")
-            {
-                targetInRangeC.isInRange = true;
-                //Debug.DrawLine(transform.position, aimC.target.position, Color.green);
-            }
-            else
-            {
-                targetInRangeC.isInRange = false;
-                //Debug.DrawLine(transform.position, aimC.target.position, Color.red);
-            }
         }
         
     }
