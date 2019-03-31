@@ -14,5 +14,6 @@ public struct MovementData : IComponentData
 
 public class MovementComponent : ComponentDataProxy<MovementData>
 {
-
+    // FluidMovement = 1    This is strict vector movement
+    // FluidMovement > 1    This is smooth rigidbody movement
 }

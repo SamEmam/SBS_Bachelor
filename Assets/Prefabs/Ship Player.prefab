@@ -108,9 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d6cb1a12dd46c488b6806d644160d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
+  fireRate: 0.5
   fireCountdown: 0
-  shotPrefab: {fileID: 3207704226029624589, guid: b6238668d0d5ed14a803714f84d9033c,
+  shotPrefab: {fileID: 3207704226029624589, guid: 716c4663be665d44d913025f8f47aee2,
     type: 3}
   firePoint: {fileID: 5643412846557688897}
 --- !u!114 &5643412845088686325
@@ -641,9 +641,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d6cb1a12dd46c488b6806d644160d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
+  fireRate: 0.5
   fireCountdown: 0
-  shotPrefab: {fileID: 3207704226029624589, guid: b6238668d0d5ed14a803714f84d9033c,
+  shotPrefab: {fileID: 3207704226029624589, guid: 716c4663be665d44d913025f8f47aee2,
     type: 3}
   firePoint: {fileID: 5643412846633508469}
 --- !u!114 &7757215128970578319

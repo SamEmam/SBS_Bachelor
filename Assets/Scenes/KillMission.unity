@@ -165,7 +165,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 5643412845205751684, guid: 2a46edc4022114788b6c08553e20b24c, type: 3}
   - {fileID: 5643412845205751684, guid: 20aa4916d4973634c904257330121acb, type: 3}
-  numberOfSpawns: 3200000032000000
+  numberOfSpawns: 1900000019000000
   minDistance: 3
   maxDistance: 50
 --- !u!4 &231818043
@@ -340,7 +340,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 5643412845205751684, guid: 33301ca1425d8cf468e61375dab4a6e0, type: 3}
   - {fileID: 5643412845205751684, guid: 5d9f1627fd284e748822827846e5dc44, type: 3}
-  numberOfSpawns: 3200000032000000
+  numberOfSpawns: 1900000019000000
   minDistance: 3
   maxDistance: 50
 --- !u!4 &546841391

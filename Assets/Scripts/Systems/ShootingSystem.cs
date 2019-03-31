@@ -40,6 +40,10 @@ public class ShootingSystem : ComponentSystem
                 if (weaponC.fireCountdown <= 0f)
                 {
                     var shot = Object.Instantiate(weaponC.shotPrefab, weaponC.firePoint.position, weaponC.firePoint.rotation);
+                    if (shot.GetComponent<RotationComponent>())
+                    {
+                        shot.GetComponent<RotationComponent>().target = aimC.target;
+                    }
 
                     weaponC.fireCountdown = 1f / weaponC.fireRate;
                 }
