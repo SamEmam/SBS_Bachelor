@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: dfcefd1d4d450334a9d868d9147e6c1f, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -165,7 +165,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 5643412845205751684, guid: 2a46edc4022114788b6c08553e20b24c, type: 3}
   - {fileID: 5643412845205751684, guid: 20aa4916d4973634c904257330121acb, type: 3}
-  numberOfSpawns: 1e0000001e000000
+  numberOfSpawns: 1900000019000000
   minDistance: 3
   maxDistance: 50
 --- !u!4 &231818043
@@ -265,6 +265,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!1 &412073212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412073213}
+  m_Layer: 0
+  m_Name: waypoint
+  m_TagString: Waypoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &412073213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412073212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &546841388
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +340,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 5643412845205751684, guid: 33301ca1425d8cf468e61375dab4a6e0, type: 3}
   - {fileID: 5643412845205751684, guid: 5d9f1627fd284e748822827846e5dc44, type: 3}
-  numberOfSpawns: 1e0000001e000000
+  numberOfSpawns: 1900000019000000
   minDistance: 3
   maxDistance: 50
 --- !u!4 &546841391

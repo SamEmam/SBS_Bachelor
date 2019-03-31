@@ -8,4 +8,5 @@ public class TargetComponent : MonoBehaviour
     public int enemyScore = int.MaxValue;
     public int targetedBy;
     public int tempTargetedBy;
+    public bool isCloseEnoughToWaypoint;
 }

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5643412845088686330}
   - component: {fileID: 5643412845088686326}
   - component: {fileID: 5643412845088686325}
+  - component: {fileID: 5880684357649509994}
+  - component: {fileID: 3054510739181944918}
   m_Layer: 0
   m_Name: Gun 2
   m_TagString: Untagged
@@ -123,6 +125,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5880684357649509994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643412845088686328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6889b0425b2bf344d99d1cf171bf04fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  parentTransform: {fileID: 5643412845205751680}
+--- !u!114 &3054510739181944918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643412845088686328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f60ae6576b8254419e66e368f28aa07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInRange: 0
+  minRange: 135
+  maxRange: 225
 --- !u!1 &5643412845205751684
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +177,7 @@ GameObject:
   - component: {fileID: 3912087133375908430}
   - component: {fileID: 549786881423066259}
   - component: {fileID: 436670189282703712}
+  - component: {fileID: 4268142795744051850}
   m_Layer: 0
   m_Name: Ship Small Player
   m_TagString: Player
@@ -370,6 +402,7 @@ MonoBehaviour:
   enemyScore: 2147483647
   targetedBy: 0
   tempTargetedBy: 0
+  isCloseEnoughToWaypoint: 1
 --- !u!96 &436670189282703712
 TrailRenderer:
   serializedVersion: 2
@@ -474,6 +507,20 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &4268142795744051850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643412845205751684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a8061ebefb22047ae114ab4d8bf6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoint: {fileID: 0}
+  maxDistFromWaypoint: 100
 --- !u!1 &5643412845963001170
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +535,8 @@ GameObject:
   - component: {fileID: 5643412845963001260}
   - component: {fileID: 5643412845963001256}
   - component: {fileID: 5643412845963001263}
+  - component: {fileID: 7532902947823556028}
+  - component: {fileID: 3955224783205303731}
   m_Layer: 0
   m_Name: Gun 1
   m_TagString: Untagged
@@ -597,6 +646,35 @@ MonoBehaviour:
   shotPrefab: {fileID: 3207704226029624589, guid: b6238668d0d5ed14a803714f84d9033c,
     type: 3}
   firePoint: {fileID: 5643412846633508469}
+--- !u!114 &7532902947823556028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643412845963001170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6889b0425b2bf344d99d1cf171bf04fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  parentTransform: {fileID: 5643412845205751680}
+--- !u!114 &3955224783205303731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643412845963001170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f60ae6576b8254419e66e368f28aa07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInRange: 0
+  minRange: 135
+  maxRange: 225
 --- !u!1 &5643412846055911914
 GameObject:
   m_ObjectHideFlags: 0
