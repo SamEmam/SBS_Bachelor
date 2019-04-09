@@ -66,7 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedData:
     fluidMovement: 1
-    movementSpeed: 5
+    movementSpeed: 7
 --- !u!114 &7553542940959003892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,8 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a12d9466b325f48a1a768de35b2faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 5
-  ObjectParticles: {fileID: 6951706027688588926}
+  lifespan: 10
   explosionPrefab: {fileID: 3207704226029624589, guid: 523210f9b611fdf449dc50af56956056,
     type: 3}
 --- !u!54 &5704745124602339897
@@ -165,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  rotationSpeed: 3
+  rotationSpeed: 10
 --- !u!1 &4704642794103229136
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,8 +327,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 0.5
+      minScalar: 0.25
       maxCurve:
         serializedVersion: 2
         m_Curve:

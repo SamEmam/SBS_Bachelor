@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 122933728}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -332,6 +332,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1818078722}
+    - target: {fileID: 1308861584960126567, guid: 16108a8e191832947bf178351fe4d0a6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: KillMission 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1308861585695843466, guid: 16108a8e191832947bf178351fe4d0a6,
         type: 3}
       propertyPath: m_Text
@@ -356,6 +361,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'Rewards: $ 3500'
       objectReference: {fileID: 0}
+    - target: {fileID: 1308861584080775692, guid: 16108a8e191832947bf178351fe4d0a6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b1847b5d904e2724c9f24285419743f1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16108a8e191832947bf178351fe4d0a6, type: 3}
 --- !u!1001 &578993514
@@ -405,6 +415,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1818078722}
+    - target: {fileID: 1308861584960126567, guid: 16108a8e191832947bf178351fe4d0a6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: KillMission 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1308861585695843466, guid: 16108a8e191832947bf178351fe4d0a6,
         type: 3}
       propertyPath: m_Text
@@ -439,6 +454,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1308861584080775692, guid: 16108a8e191832947bf178351fe4d0a6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b1847b5d904e2724c9f24285419743f1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16108a8e191832947bf178351fe4d0a6, type: 3}
 --- !u!1 &612045636
@@ -817,6 +837,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1818078722}
+    - target: {fileID: 1308861584960126567, guid: 16108a8e191832947bf178351fe4d0a6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: KillMission 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1308861585695843466, guid: 16108a8e191832947bf178351fe4d0a6,
         type: 3}
       propertyPath: m_Text
@@ -841,6 +866,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'Rewards: $ 1500'
       objectReference: {fileID: 0}
+    - target: {fileID: 1308861584080775692, guid: 16108a8e191832947bf178351fe4d0a6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b1847b5d904e2724c9f24285419743f1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16108a8e191832947bf178351fe4d0a6, type: 3}
 --- !u!1 &1554953994
@@ -901,7 +931,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 8fd12d76f014d744e82cf2ff87b99b38, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -1119,6 +1149,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2c82884d0ae4b3ba0c875ab6f7258f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2056686134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2056686136}
+  - component: {fileID: 2056686135}
+  m_Layer: 0
+  m_Name: PlayerPrefs Reset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2056686135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056686134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2427576b5afdd4d4d880b8641eda5120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2056686136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056686134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -26.614912, y: 79.681015, z: 72.541214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &2134023512 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1308861584960126565, guid: 16108a8e191832947bf178351fe4d0a6,
@@ -1184,6 +1257,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1818078722}
+    - target: {fileID: 1308861584960126567, guid: 16108a8e191832947bf178351fe4d0a6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: KillMission 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1308861585154782408, guid: 16108a8e191832947bf178351fe4d0a6,
         type: 3}
       propertyPath: m_Text
@@ -1216,6 +1294,11 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1308861584080775692, guid: 16108a8e191832947bf178351fe4d0a6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b1847b5d904e2724c9f24285419743f1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16108a8e191832947bf178351fe4d0a6, type: 3}
 --- !u!1001 &3653872814066416114
