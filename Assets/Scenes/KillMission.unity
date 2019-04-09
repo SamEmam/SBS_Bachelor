@@ -866,6 +866,115 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1939221790
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3653872814907367191, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneFader
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367188, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367188, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367188, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[0].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367188, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367188, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367188, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367188, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367188, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367189, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 413.2387
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367189, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 820.4378
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367189, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 150.55884
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367189, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367189, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367189, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367189, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367189, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367189, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367189, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653872814907367189, guid: 246afdbbcc17f4e22b27b9f74682ce8b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 246afdbbcc17f4e22b27b9f74682ce8b, type: 3}
 --- !u!1 &2073591610
 GameObject:
   m_ObjectHideFlags: 0
