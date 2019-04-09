@@ -31,7 +31,7 @@ public class RotationSystem : ComponentSystem
             // Functionality
             if (rotationC.target)
             {
-                var pos = rotationC.target.position - transform.position;
+                var pos = (rotationC.target.position - transform.position) + rotationC.target.forward * 2;
                 Quaternion targetRotation = Quaternion.LookRotation(pos);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationC.rotationSpeed * deltaTime);
             }
