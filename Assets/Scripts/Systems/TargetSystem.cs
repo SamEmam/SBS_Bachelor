@@ -90,11 +90,9 @@ public class TargetSystem : ComponentSystem
                         targetC.enemyScore -= (int)(dist * 2);
                     }
 
-                    // Distance to waypoint (temporarily just a zero vector)
-                    var distToWaypoint = Vector3.Distance(transform.position, Vector3.zero);
-
+                    
                     // Set new target
-                    if (targetC.enemyScore >= targetC.targetScore && distToWaypoint < 200)
+                    if (targetC.enemyScore >= targetC.targetScore)
                     {
                         targetC.targetScore = targetC.enemyScore;
                         rotationC.target = otherTransform;

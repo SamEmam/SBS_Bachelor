@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoint: {fileID: 0}
-  maxDistFromWaypoint: 100
+  maxDistFromWaypoint: 50
 --- !u!1 &5643412845963001170
 GameObject:
   m_ObjectHideFlags: 0
