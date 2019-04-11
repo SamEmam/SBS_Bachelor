@@ -17,4 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Missions/KillMission 1.unity
     guid: 8f2dc8c8fa11c034bae8221107409f8b
+  - enabled: 1
+    path: Assets/Scenes/Missions/KillMission 2.unity
+    guid: c823f6b21a55e7f4f8eb380a2fb9c016
+  - enabled: 1
+    path: Assets/Scenes/Missions/KillMission 3.unity
+    guid: 116ec2dc3942e8445b827aefcfae33af
+  - enabled: 1
+    path: Assets/Scenes/Missions/KillMission 4.unity
+    guid: 3d16df5b906229f48bebffb3a49560a6
+  - enabled: 1
+    path: Assets/Scenes/Missions/KillMission 5.unity
+    guid: ac04ad0604dfb7c4f9dd53185b34ff69
   m_configObjects: {}
