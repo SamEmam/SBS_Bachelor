@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 231818043}
   - component: {fileID: 231818042}
   - component: {fileID: 231818041}
+  - component: {fileID: 231818044}
   m_Layer: 0
   m_Name: SpawnController Ship Player
   m_TagString: Untagged
@@ -182,6 +183,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &231818044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231818040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc8d4bdd2372424690729a83a2ea5a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnC: {fileID: 231818042}
+  shipCost: 
+  shipSell: 
+  shipCount1: {fileID: 0}
+  shipCount2: {fileID: 0}
+  currencyText: {fileID: 0}
 --- !u!1 &361349465
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Horizontal: 0
   Vertical: 0
+  Scroll: 0
 --- !u!114 &361349471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5061,7 +5081,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 5643412845205751684, guid: 33301ca1425d8cf468e61375dab4a6e0, type: 3}
   - {fileID: 5643412845205751684, guid: 5d9f1627fd284e748822827846e5dc44, type: 3}
-  numberOfSpawns: 0500000005000000
+  numberOfSpawns: 0100000001000000
   minDistance: 3
   maxDistance: 50
 --- !u!4 &546841391
@@ -5242,7 +5262,7 @@ PrefabInstance:
     - target: {fileID: 114353486545430552, guid: acf04135c5ace95478fc3f4bc87677a2,
         type: 3}
       propertyPath: m_Text
-      value: 'CURRENCY EARNED
+      value: 'CURRENCY
 
 '
       objectReference: {fileID: 0}
@@ -5278,6 +5298,37 @@ PrefabInstance:
     - {fileID: 114002999977776600, guid: acf04135c5ace95478fc3f4bc87677a2, type: 3}
     - {fileID: 114413141377337486, guid: acf04135c5ace95478fc3f4bc87677a2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: acf04135c5ace95478fc3f4bc87677a2, type: 3}
+--- !u!1 &884959418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1196160829538694, guid: acf04135c5ace95478fc3f4bc87677a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 884959417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &884959419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884959418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00770bb73afc75a42a9be67eb8cb07ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyText: {fileID: 884959422}
+--- !u!114 &884959422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114622372987635760, guid: acf04135c5ace95478fc3f4bc87677a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 884959417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884959418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &891887532
 GameObject:
   m_ObjectHideFlags: 0
@@ -10205,6 +10256,37 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &1525970635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1944606908639428, guid: acf04135c5ace95478fc3f4bc87677a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 884959417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1525970636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525970635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00770bb73afc75a42a9be67eb8cb07ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyText: {fileID: 1525970638}
+--- !u!114 &1525970638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114308565257754912, guid: acf04135c5ace95478fc3f4bc87677a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 884959417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525970635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1548364464 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1812509943969246, guid: acf04135c5ace95478fc3f4bc87677a2,
@@ -15092,6 +15174,11 @@ PrefabInstance:
       propertyPath: sceneFader
       value: 
       objectReference: {fileID: 2097624557}
+    - target: {fileID: 813650421002118983, guid: 2aa6d206f73427f4fb65806d3ee735b9,
+        type: 3}
+      propertyPath: menuSceneName
+      value: MainScene
+      objectReference: {fileID: 0}
     - target: {fileID: 813650421002118982, guid: 2aa6d206f73427f4fb65806d3ee735b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15157,6 +15244,11 @@ PrefabInstance:
       propertyPath: CompleteLevelUI
       value: 
       objectReference: {fileID: 1548364464}
+    - target: {fileID: 813650421002123449, guid: 2aa6d206f73427f4fb65806d3ee735b9,
+        type: 3}
+      propertyPath: missionReward
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 813650421002118978, guid: 2aa6d206f73427f4fb65806d3ee735b9,
         type: 3}
       propertyPath: playersText
@@ -15187,7 +15279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708ca9150a385d04490e858f808f37ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuSceneName: MainMenu
+  menuSceneName: MainScene
   levelSelectSceneName: LevelSelect
   LevelToUnlock: 2
   sceneFader: {fileID: 2097624557}
@@ -15203,7 +15295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817248c2cbeb14948919319b3adcbb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuSceneName: MainMenu
+  menuSceneName: MainScene
   sceneFader: {fileID: 2097624557}
 --- !u!1001 &3662518062387232395
 PrefabInstance:

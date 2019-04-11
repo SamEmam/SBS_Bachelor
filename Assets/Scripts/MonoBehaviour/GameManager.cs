@@ -6,7 +6,9 @@ public class GameManager : MonoBehaviour {
 
 
     public bool GameIsWon;
+    private bool hasBeenAwarded = false;
     public bool GameIsLost;
+    public int missionReward;
 
     public GameObject gameOverUI;
 
@@ -39,7 +41,14 @@ public class GameManager : MonoBehaviour {
 
     public void WinLevel ()
     {
-        GameIsWon = true;
-        CompleteLevelUI.SetActive(true);
+        if (!hasBeenAwarded)
+        {
+            hasBeenAwarded = true;
+            GameIsWon = true;
+            CompleteLevelUI.SetActive(true);
+            missionReward += PlayerPrefs.GetInt("Currency", 0);
+            PlayerPrefs.SetInt("Currency", missionReward);
+        }
+        
     }
 }

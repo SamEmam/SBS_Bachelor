@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
     path: Assets/Scenes/LevelSelect.unity
     guid: ad391f56203f043dcb4dea2b741ac66c
   - enabled: 1
+    path: Assets/Scenes/HangarScene.unity
+    guid: 75ddf219d1f5d56438e9a5936a44dfe4
+  - enabled: 1
     path: Assets/Scenes/Missions/KillMission 1.unity
     guid: 8f2dc8c8fa11c034bae8221107409f8b
-  - enabled: 1
-    path: Assets/Scenes/KillMission.unity
-    guid: 9b3b982582c6a4d24a5acfa05d2c8105
-  - enabled: 1
-    path: Assets/Scenes/TestScene.unity
-    guid: bd471bf3b411cb04787d38afa09a7afa
   m_configObjects: {}
