@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FleetManager : MonoBehaviour
@@ -27,6 +28,12 @@ public class FleetManager : MonoBehaviour
             currencyText.text = "Currency: " + PlayerPrefs.GetInt("Currency");
         }
         
+    }
+
+    // This reload method is ONLY FOR TESTING
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void AddShip(int shipIndex)

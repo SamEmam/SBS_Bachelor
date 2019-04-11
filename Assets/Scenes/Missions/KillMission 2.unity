@@ -5081,7 +5081,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 5643412845205751684, guid: 33301ca1425d8cf468e61375dab4a6e0, type: 3}
   - {fileID: 5643412845205751684, guid: 5d9f1627fd284e748822827846e5dc44, type: 3}
-  numberOfSpawns: 0100000001000000
+  numberOfSpawns: 0500000005000000
   minDistance: 3
   maxDistance: 50
 --- !u!4 &546841391
@@ -15247,7 +15247,7 @@ PrefabInstance:
     - target: {fileID: 813650421002123449, guid: 2aa6d206f73427f4fb65806d3ee735b9,
         type: 3}
       propertyPath: missionReward
-      value: 300
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 813650421002118978, guid: 2aa6d206f73427f4fb65806d3ee735b9,
         type: 3}
@@ -15281,7 +15281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSceneName: MainScene
   levelSelectSceneName: LevelSelect
-  LevelToUnlock: 2
+  LevelToUnlock: 3
   sceneFader: {fileID: 2097624557}
 --- !u!114 &813650420292040521
 MonoBehaviour:
