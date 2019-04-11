@@ -3,13 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-    public string levelToLoad = "MainLevel";
+    public string missionsScene, hangarScene;
 
     public SceneFader sceneFader;
 
-    public void Play()
+    public void GoToMissions()
     {
-        sceneFader.FadeTo(levelToLoad);
+        sceneFader.FadeTo(missionsScene);
+    }
+
+    public void GoToHangar()
+    {
+        sceneFader.FadeTo(hangarScene);
     }
 
     public void Quit()

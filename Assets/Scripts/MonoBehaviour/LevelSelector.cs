@@ -3,7 +3,9 @@ using UnityEngine.UI;
 
 public class LevelSelector : MonoBehaviour
 {
-    public SceneFader fader;
+    public SceneFader sceneFader;
+
+    public string mainMenu;
 
     public Button[] levelButtons;
 
@@ -22,6 +24,11 @@ public class LevelSelector : MonoBehaviour
 
     public void Select(string levelName)
     {
-        fader.FadeTo(levelName);
+        sceneFader.FadeTo(levelName);
+    }
+
+    public void GoToMainMenu()
+    {
+        sceneFader.FadeTo(mainMenu);
     }
 }
