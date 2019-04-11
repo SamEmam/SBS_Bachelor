@@ -14,5 +14,6 @@ public class Settings : MonoBehaviour
     public void ResetGame()
     {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("Currency", 500);
     }
 }

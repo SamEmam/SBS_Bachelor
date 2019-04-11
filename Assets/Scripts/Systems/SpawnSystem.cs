@@ -16,6 +16,7 @@ public class SpawnSystem : ComponentSystem
 
     [Inject] private Components components;
 
+    
     protected override void OnUpdate()
     {
         int counter = 0;
@@ -40,8 +41,8 @@ public class SpawnSystem : ComponentSystem
                     counter++;
                 }
             }
-            
-            if (counter >= spawnC.numberOfSpawns[spawnC.prefabs.Length-1])
+
+            if (counter >= spawnC.numberOfSpawns[spawnC.prefabs.Length - 1])
             {
                 Object.Destroy(spawnC.gameObject);
             }
