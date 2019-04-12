@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
 
     void EndGame()
     {
-        GameIsWon = true;
+        GameIsLost = true;
         gameOverUI.SetActive(true);
     }
 

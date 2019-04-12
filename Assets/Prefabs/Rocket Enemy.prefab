@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 1284534502966304554}
   - component: {fileID: 4786642573680010428}
   - component: {fileID: 4554340702192272203}
+  - component: {fileID: 9202357212613208683}
+  - component: {fileID: 404993323735597029}
   m_Layer: 0
   m_Name: Rocket Enemy
   m_TagString: Untagged
@@ -111,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    damage: 50
+    damage: 25
 --- !u!114 &3237929794630612935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +167,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   rotationSpeed: 10
+--- !u!114 &9202357212613208683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3207704226029624589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaaff9924c507dc4dbed48052c5fa8cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedData:
+    health: 1
+--- !u!114 &404993323735597029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3207704226029624589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b7361cc073d784b946fa9d80f774e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedData:
+    isDead: 0
 --- !u!1 &4704642794103229136
 GameObject:
   m_ObjectHideFlags: 0

@@ -164,9 +164,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 5643412845205751684, guid: 2a46edc4022114788b6c08553e20b24c, type: 3}
-  - {fileID: 5643412845205751684, guid: 20aa4916d4973634c904257330121acb, type: 3}
-  numberOfSpawns: 1400000014000000
+  - {fileID: 6423292876207213822, guid: 7ad6b4d07fc6d9d48a19bef749ddfdf7, type: 3}
+  - {fileID: 5869516207357562431, guid: 470c5a78f7a850c4bab3cc343c9e75c8, type: 3}
+  - {fileID: 3191713436047487631, guid: 898cf80e77f8c5c44b959b3ec4775d28, type: 3}
+  - {fileID: 8047865350479808070, guid: 753c9e2c7c3b5324cbe3d7d153e218a4, type: 3}
+  - {fileID: 8306486467830115074, guid: 2fae4c7b5a9a34f40ad385d4b01466f6, type: 3}
+  numberOfSpawns: 0500000005000000050000000500000001000000
   minDistance: 3
   maxDistance: 50
 --- !u!4 &231818043
@@ -5079,9 +5082,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 5643412845205751684, guid: 33301ca1425d8cf468e61375dab4a6e0, type: 3}
-  - {fileID: 5643412845205751684, guid: 5d9f1627fd284e748822827846e5dc44, type: 3}
-  numberOfSpawns: 0100000001000000
+  - {fileID: 4662826768574044516, guid: 7145ad658b3d00340b391d48491f39aa, type: 3}
+  - {fileID: 259048029367974109, guid: f074428b3a5f2a34abf9b335aae02cb0, type: 3}
+  - {fileID: 6009981703674826596, guid: f83d2885ca4f06346bd4df7e0a58c08e, type: 3}
+  - {fileID: 7055125223163713335, guid: 3f1b398ee27092b4092c1656ba42fdf6, type: 3}
+  - {fileID: 5241254309798629121, guid: 914d3daaa7d1d594da6f507908b24346, type: 3}
+  numberOfSpawns: 0100000000000000000000000100000000000000
   minDistance: 3
   maxDistance: 50
 --- !u!4 &546841391

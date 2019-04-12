@@ -112,7 +112,8 @@ MonoBehaviour:
   fireCountdown: 0
   shotPrefab: {fileID: 3207704226029624589, guid: 716c4663be665d44d913025f8f47aee2,
     type: 3}
-  firePoint: {fileID: 5643412846557688897}
+  firePoints:
+  - {fileID: 5643412846557688897}
 --- !u!114 &5643412845088686325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   parentTransform: {fileID: 5643412846576781835}
+  weaponBase: {fileID: 5643412845205751680}
 --- !u!1 &5643412845205751684
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoint: {fileID: 0}
   maxDistFromWaypoint: 50
+  waypointParticles: {fileID: 0}
 --- !u!1 &5643412845963001170
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +648,8 @@ MonoBehaviour:
   fireCountdown: 0
   shotPrefab: {fileID: 3207704226029624589, guid: 716c4663be665d44d913025f8f47aee2,
     type: 3}
-  firePoint: {fileID: 5643412846633508469}
+  firePoints:
+  - {fileID: 5643412846633508469}
 --- !u!114 &7757215128970578319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,6 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   parentTransform: {fileID: 5643412846576781835}
+  weaponBase: {fileID: 5643412845205751680}
 --- !u!1 &5643412846055911914
 GameObject:
   m_ObjectHideFlags: 0

@@ -112,7 +112,8 @@ MonoBehaviour:
   fireCountdown: 0
   shotPrefab: {fileID: 3207704226029624589, guid: 10b116b66058e8d44911b2bc7c43d816,
     type: 3}
-  firePoint: {fileID: 5643412846557688897}
+  firePoints:
+  - {fileID: 5643412846557688897}
 --- !u!114 &5643412845088686325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   parentTransform: {fileID: 5643412845205751680}
+  weaponBase: {fileID: 5643412845205751680}
 --- !u!1 &5643412845205751684
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +632,8 @@ MonoBehaviour:
   fireCountdown: 0
   shotPrefab: {fileID: 3207704226029624589, guid: 10b116b66058e8d44911b2bc7c43d816,
     type: 3}
-  firePoint: {fileID: 5643412846633508469}
+  firePoints:
+  - {fileID: 5643412846633508469}
 --- !u!114 &2075028359245841368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,6 +663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   parentTransform: {fileID: 5643412845205751680}
+  weaponBase: {fileID: 5643412845205751680}
 --- !u!1 &5643412846055911914
 GameObject:
   m_ObjectHideFlags: 0

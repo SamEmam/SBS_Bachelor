@@ -6,6 +6,7 @@ public class AimComponent : MonoBehaviour
 {
     public Transform target;
     public Transform parentTransform;
+    public Transform weaponBase;
     private RotationComponent parentRotationComponent;
 
     private void Start()

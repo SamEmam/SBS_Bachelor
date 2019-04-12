@@ -7,5 +7,5 @@ public class WeaponComponent : MonoBehaviour
     public float fireRate = 1f;
     public float fireCountdown = 0f;
     public GameObject shotPrefab;
-    public Transform firePoint;
+    public Transform[] firePoints;
 }

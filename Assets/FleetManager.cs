@@ -11,7 +11,7 @@ public class FleetManager : MonoBehaviour
     public int[] shipSell;
 
     // Attributes ONLY FOR TESTING
-    public Text shipCount1, shipCount2, currencyText;
+    public Text shipCount1, shipCount2, shipCount3, shipCount4, shipCount5, currencyText;
 
     private void Awake()
     {
@@ -25,6 +25,9 @@ public class FleetManager : MonoBehaviour
         {
             shipCount1.text = "Ship 1: " + PlayerPrefs.GetInt("Fleet_" + 0).ToString();
             shipCount2.text = "Ship 2: " + PlayerPrefs.GetInt("Fleet_" + 1).ToString();
+            shipCount3.text = "Ship 3: " + PlayerPrefs.GetInt("Fleet_" + 2).ToString();
+            shipCount4.text = "Ship 4: " + PlayerPrefs.GetInt("Fleet_" + 3).ToString();
+            shipCount5.text = "Ship 5: " + PlayerPrefs.GetInt("Fleet_" + 4).ToString();
             currencyText.text = "Currency: " + PlayerPrefs.GetInt("Currency");
         }
         

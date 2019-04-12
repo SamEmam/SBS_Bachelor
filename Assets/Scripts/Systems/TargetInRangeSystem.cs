@@ -27,8 +27,8 @@ public class TargetInRangeSystem : ComponentSystem
             // New Functionality
             if (aimC.target)
             {
-                var directionToTarget = aimC.parentTransform.position - aimC.target.position;
-                var angle = Vector3.Angle(aimC.parentTransform.forward, directionToTarget);
+                var directionToTarget = aimC.weaponBase.position - aimC.target.position;
+                var angle = Vector3.Angle(aimC.weaponBase.forward, directionToTarget);
 
 
 
