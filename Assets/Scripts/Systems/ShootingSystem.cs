@@ -37,19 +37,47 @@ public class ShootingSystem : ComponentSystem
                 Quaternion targetRotation = Quaternion.LookRotation(pos);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * deltaTime);
 
+                
+
                 if (weaponC.fireCountdown <= 0f)
                 {
-                    for (int j = 0; j < weaponC.firePoints.Length; j++)
+                    if (!weaponC.useLaser)
                     {
-                        var shot = Object.Instantiate(weaponC.shotPrefab, weaponC.firePoints[j].position, weaponC.firePoints[j].rotation);
-                        if (shot.GetComponent<RotationComponent>())
+                        for (int j = 0; j < weaponC.firePoints.Length; j++)
                         {
-                            shot.GetComponent<RotationComponent>().target = aimC.target;
+                            var shot = Object.Instantiate(weaponC.shotPrefab, weaponC.firePoints[j].position, weaponC.firePoints[j].rotation);
+                            if (shot.GetComponent<RotationComponent>())
+                            {
+                                shot.GetComponent<RotationComponent>().target = aimC.target;
+                            }
                         }
                     }
+
+                    else
+                    {
+                        if (!weaponC.lineRenderer.enabled)
+                        {
+                            weaponC.lineRenderer.enabled = true;
+                        }
+                        weaponC.laserPoint.transform.parent = null;
+                        weaponC.laserPoint.transform.position = aimC.target.position;
+                        weaponC.lineRenderer.SetPosition(0, weaponC.firePoints[0].position);
+                        weaponC.lineRenderer.SetPosition(1, weaponC.laserPoint.transform.position);
+                        
+
+                    }
                     weaponC.fireCountdown = 1f / weaponC.fireRate;
+
                 }
                 
+            }
+            else if (weaponC.useLaser)
+            {
+                if (weaponC.lineRenderer.enabled)
+                {
+                    weaponC.lineRenderer.enabled = false;
+                    weaponC.laserPoint.transform.localPosition = Vector3.zero;
+                }
             }
 
             

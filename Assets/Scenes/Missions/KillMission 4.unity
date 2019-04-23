@@ -156,6 +156,10 @@ MonoBehaviour:
   shipSell: 
   shipCount1: {fileID: 0}
   shipCount2: {fileID: 0}
+  shipCount3: {fileID: 0}
+  shipCount4: {fileID: 0}
+  shipCount5: {fileID: 0}
+  shipCount6: {fileID: 0}
   currencyText: {fileID: 0}
 --- !u!114 &244995930
 MonoBehaviour:
@@ -187,7 +191,8 @@ MonoBehaviour:
   - {fileID: 3191713436047487631, guid: 898cf80e77f8c5c44b959b3ec4775d28, type: 3}
   - {fileID: 8047865350479808070, guid: 753c9e2c7c3b5324cbe3d7d153e218a4, type: 3}
   - {fileID: 8306486467830115074, guid: 2fae4c7b5a9a34f40ad385d4b01466f6, type: 3}
-  numberOfSpawns: 0500000005000000050000000500000001000000
+  - {fileID: 6818950567122819611, guid: 03e32db6029ff0240afcf49d49ceefb5, type: 3}
+  numberOfSpawns: 050000000500000005000000050000000100000001000000
   minDistance: 3
   maxDistance: 50
 --- !u!4 &244995932
@@ -5380,7 +5385,8 @@ MonoBehaviour:
   - {fileID: 6009981703674826596, guid: f83d2885ca4f06346bd4df7e0a58c08e, type: 3}
   - {fileID: 7055125223163713335, guid: 3f1b398ee27092b4092c1656ba42fdf6, type: 3}
   - {fileID: 5241254309798629121, guid: 914d3daaa7d1d594da6f507908b24346, type: 3}
-  numberOfSpawns: 0a000000080000000a0000000800000004000000
+  - {fileID: 622306141301462898, guid: 47f3cc25f1a4ead4a8052f9b5cf79f90, type: 3}
+  numberOfSpawns: 0a0000000800000009000000070000000300000003000000
   minDistance: 3
   maxDistance: 50
 --- !u!4 &990549316
