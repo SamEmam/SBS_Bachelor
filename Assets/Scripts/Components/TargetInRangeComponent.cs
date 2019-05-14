@@ -8,4 +8,10 @@ public class TargetInRangeComponent : MonoBehaviour
     public int minRange;
     public int maxRange;
     
+    // Used for Unit Test Only
+    public void Construct(int minRange, int maxRange)
+    {
+        this.minRange = minRange;
+        this.maxRange = maxRange;
+    }
 }

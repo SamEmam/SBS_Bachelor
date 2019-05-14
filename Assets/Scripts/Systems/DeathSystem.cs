@@ -18,22 +18,25 @@ public class DeathSystem : ComponentSystem
 
     protected override void OnUpdate()
     {
+        var em = World.Active.GetOrCreateManager<EntityManager>();
 
         for (int i = 0; i < components.Length; i++)
         {
             // Setup
             var entity = components.entities[i];
-            var healthC = components.healthC[i];
-            var deathC = components.deathC[i];
             var transform = components.transform[i];
 
-            // Functionality
-            if (healthC.health <= 0 && deathC.isDead == 0)
-            {
-                deathC.isDead = 1;
+            var healthC = em.GetComponentData<HealthData>(entity);
+            var deathC = em.GetComponentData<DeathData>(entity);
 
-                // temp death
-                Object.Destroy(transform.gameObject);
+            // Functionality
+            if (healthC.health <= 0)
+            {
+                if (deathC.deathState == DeathEnum.Alive)
+                {
+                    EntityManager.SetComponentData(components.entities[i], new DeathData { deathState = DeathEnum.Dead });
+                }
+                
                 //var explosion = Object.Instantiate(deathC.deathEffect, transform.position, Quaternion.identity);
 
             }

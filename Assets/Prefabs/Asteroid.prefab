@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    faction: 0
+    faction: 2
 --- !u!114 &2175444183023378503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    fluidMovement: 0
+    movementType: 1
     movementSpeed: 2
 --- !u!114 &4586849650067194845
 MonoBehaviour:

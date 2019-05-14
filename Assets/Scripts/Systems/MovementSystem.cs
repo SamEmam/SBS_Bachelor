@@ -29,12 +29,11 @@ public class MovementSystem : ComponentSystem
             var transform = components.transform[i];
 
             // Functionality
-            // Strict movement or fluid movement
-            if (movementC.fluidMovement == 0)
+            if (movementC.movementType == MovementType.vectorMovement)
             {
                 transform.position += transform.forward * movementC.movementSpeed * deltaTime;
             }
-            else
+            else if (movementC.movementType == MovementType.rigidbodyMovement)
             {
                 rigidbody.AddForce(transform.forward * movementC.movementSpeed * 75);
             }

@@ -19,20 +19,33 @@ public class CameraMovementSystem : ComponentSystem
         var camMaxHeight = 75;
         var scroll = 0f;
 
+        //Camera.main.transform.position.y
+
         foreach (var entity in GetEntities<Components>())
         {
+            // if position is less than minHeight, set height to min
+            if (entity.transform.position.y < camMinHeight)
+            {
+                entity.transform.position = new Vector3(entity.transform.position.x, camMinHeight, entity.transform.position.z);
+            }
+            // if position is more than maxHeight, set height to max
+            else if (entity.transform.position.y > camMaxHeight)
+            {
+                entity.transform.position = new Vector3(entity.transform.position.x, camMaxHeight, entity.transform.position.z);
+            }
+
             // If camera under min height, check if scroll is positive
-            if (Camera.main.transform.position.y < camMinHeight && entity.inputC.Scroll > 0)
+            if (entity.transform.position.y < camMinHeight && entity.inputC.Scroll > 0)
             {
                 scroll = entity.inputC.Scroll;
             }
             // If camera over max height, check if scroll is negative
-            else if (Camera.main.transform.position.y > camMaxHeight && entity.inputC.Scroll < 0)
+            else if (entity.transform.position.y > camMaxHeight && entity.inputC.Scroll < 0)
             {
                 scroll = entity.inputC.Scroll;
             }
             // If camera within min & max height
-            else if (Camera.main.transform.position.y > camMinHeight && Camera.main.transform.position.y < camMaxHeight)
+            else if (entity.transform.position.y > camMinHeight && entity.transform.position.y < camMaxHeight)
             {
                 scroll = entity.inputC.Scroll;
             }

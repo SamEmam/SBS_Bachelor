@@ -19,4 +19,5 @@ public class AimComponent : MonoBehaviour
     {
         target = parentRotationComponent.target;
     }
+    
 }

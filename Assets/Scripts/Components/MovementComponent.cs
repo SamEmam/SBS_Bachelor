@@ -8,12 +8,18 @@ using System;
 [Serializable]
 public struct MovementData : IComponentData
 {
-    public int fluidMovement;
+    public MovementType movementType;
     public int movementSpeed;
+
 }
 
 public class MovementComponent : ComponentDataProxy<MovementData>
 {
-    // FluidMovement = 1    This is strict vector movement
-    // FluidMovement > 1    This is smooth rigidbody movement
+    
+}
+
+public enum MovementType
+{
+    vectorMovement = 1,
+    rigidbodyMovement = 2
 }

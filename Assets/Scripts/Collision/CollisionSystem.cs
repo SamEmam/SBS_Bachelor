@@ -20,13 +20,16 @@ public class CollisionSystem : ComponentSystem
     {
         for (var i = 0; i < data.Length; i++)
         {
-            if (EntityManager.HasComponent<DamageData>(data.collisionDataC[i].OtherEntity))
+            // Setup
+            var collisionDataC = data.collisionDataC[i];
+
+            if (EntityManager.HasComponent<DamageData>(collisionDataC.OtherEntity))
             {
-                if (EntityManager.GetComponentData<FactionData>(data.collisionDataC[i].OtherEntity).faction != EntityManager.GetComponentData<FactionData>(data.Entity[i]).faction)
+                if (EntityManager.GetComponentData<FactionData>(collisionDataC.OtherEntity).faction != EntityManager.GetComponentData<FactionData>(data.Entity[i]).faction)
                 {
                     EntityManager.SetComponentData<HealthData>(data.Entity[i], new HealthData
                     {
-                        health = data.healthC[i].health - EntityManager.GetComponentData<DamageData>(data.collisionDataC[i].OtherEntity).damage
+                        health = data.healthC[i].health - EntityManager.GetComponentData<DamageData>(collisionDataC.OtherEntity).damage
                     });
                 }
             }

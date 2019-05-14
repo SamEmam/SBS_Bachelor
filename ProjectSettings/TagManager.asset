@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Waypoint
+  - Objective
+  - Asteroid
+  - Shot
+  - TestObject
   layers:
   - Default
   - TransparentFX

@@ -10,32 +10,32 @@ public class FleetManager : MonoBehaviour
     public int[] shipCost;
     public int[] shipSell;
 
-    // Attributes ONLY FOR TESTING
-    public Text shipCount1, shipCount2, shipCount3, shipCount4, shipCount5, shipCount6, currencyText;
+    // Attributes are temporary for hangar
+    public Text smallGunCount, smallMissileCount, mediumGunCount, mediumMissileCount, largeGunCount, smallLaserCount, currencyText;
 
     private void Awake()
     {
         LoadFleet();
     }
 
-    // This update method is ONLY FOR TESTING
+    // This update method is temporary for hangar
     private void Update()
     {
-        if (shipCount1)
+        if (smallGunCount)
         {
-            shipCount1.text = "Ship 1: " + PlayerPrefs.GetInt("Fleet_" + 0).ToString();
-            shipCount2.text = "Ship 2: " + PlayerPrefs.GetInt("Fleet_" + 1).ToString();
-            shipCount3.text = "Ship 3: " + PlayerPrefs.GetInt("Fleet_" + 2).ToString();
-            shipCount4.text = "Ship 4: " + PlayerPrefs.GetInt("Fleet_" + 3).ToString();
-            shipCount5.text = "Ship 5: " + PlayerPrefs.GetInt("Fleet_" + 4).ToString();
-            shipCount6.text = "Ship 6: " + PlayerPrefs.GetInt("Fleet_" + 5).ToString();
+            smallGunCount.text = "Small Gun Ship\n " + PlayerPrefs.GetInt("Fleet_" + 0).ToString();
+            smallMissileCount.text = "Small Missile Ship\n " + PlayerPrefs.GetInt("Fleet_" + 1).ToString();
+            mediumGunCount.text = "Medium Gun Ship\n " + PlayerPrefs.GetInt("Fleet_" + 2).ToString();
+            mediumMissileCount.text = "Medium Missile Ship\n " + PlayerPrefs.GetInt("Fleet_" + 3).ToString();
+            largeGunCount.text = "Large Gun Ship\n " + PlayerPrefs.GetInt("Fleet_" + 4).ToString();
+            smallLaserCount.text = "Small Laser Ship\n " + PlayerPrefs.GetInt("Fleet_" + 5).ToString();
 
             currencyText.text = "Currency: " + PlayerPrefs.GetInt("Currency");
         }
         
     }
 
-    // This reload method is ONLY FOR TESTING
+    // This reload method is temporary for hangar
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -43,7 +43,7 @@ public class FleetManager : MonoBehaviour
 
     public void AddShip(int shipIndex)
     {
-        if (PlayerPrefs.GetInt("Currency") > shipCost[shipIndex])
+        if (PlayerPrefs.GetInt("Currency") >= shipCost[shipIndex])
         {
             int currency = PlayerPrefs.GetInt("Currency");
             PlayerPrefs.SetInt("Currency", currency - shipCost[shipIndex]);

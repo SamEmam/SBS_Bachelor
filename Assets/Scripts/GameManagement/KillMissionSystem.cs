@@ -36,15 +36,11 @@ public class KillMissionSystem : ComponentSystem
             {
                 killMissionC.cooldownBeforeSystemStart = float.MaxValue;
                 gameManager.GameIsLost = true;
-                Debug.Log("Lost: " + gameManager.GameIsLost);
-                Debug.Log("Won: " + gameManager.GameIsWon);
             }
             else if (shipCounterC.enemiesAlive <= 0)
             {
                 killMissionC.cooldownBeforeSystemStart = float.MaxValue;
                 gameManager.GameIsWon = true;
-                Debug.Log("Won: " + gameManager.GameIsWon);
-                Debug.Log("Lost: " + gameManager.GameIsLost);
 
             }
 

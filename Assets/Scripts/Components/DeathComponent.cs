@@ -7,13 +7,20 @@ using System;
 [Serializable]
 public struct DeathData : IComponentData
 {
-    public int isDead;
+    public DeathEnum deathState;
 
     //public ParticleSystem deathEffect;
+    
 }
 
 public class DeathComponent : ComponentDataProxy<DeathData>
 {
+    
+}
 
+public enum DeathEnum
+{
+    Alive = 0,
+    Dead = 1
 }
 

@@ -1,4 +1,11 @@
 {
+  "testables":[
+    "com.unity.collections",
+    "com.unity.entities",
+    "com.unity.jobs",
+    "com.unity.test-framework.performance"
+  ],
+
   "dependencies": {
     "com.unity.ads": "2.0.8",
     "com.unity.analytics": "3.3.2",

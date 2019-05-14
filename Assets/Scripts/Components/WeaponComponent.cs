@@ -14,4 +14,12 @@ public class WeaponComponent : MonoBehaviour
     public bool useLaser = false;
     public LineRenderer lineRenderer;
     public GameObject laserPoint;
+
+    // Used for Unit Test Only
+    public void Construct(float fireRate, float fireCountdown, bool useLaser)
+    {
+        this.fireRate = fireRate;
+        this.fireCountdown = fireCountdown;
+        this.useLaser = useLaser;
+    }
 }

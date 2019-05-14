@@ -10,8 +10,10 @@ public class LifespanSystem : ComponentSystem
     {
         public readonly int Length;
         public ComponentArray<LifespanComponent> lifespanC;
+        public ComponentDataArray<DeathData> deathC;
         public ComponentArray<Rigidbody> rigidbody;
         public ComponentArray<Transform> transform;
+        public EntityArray entities;
     }
 
     [Inject] private Components components;
@@ -28,42 +30,27 @@ public class LifespanSystem : ComponentSystem
             var transform = components.transform[i];
 
             // Functionality
-            if (lifespanC)
+            if (lifespanC.lifespan <= 0 && !lifespanC.lifeHasEnded)
             {
-                if (lifespanC.lifespan <= 0)
+                lifespanC.lifeHasEnded = true;
+                // If object contains explosionPrefab, initiale and give velocity
+                if (lifespanC.explosionPrefab)
                 {
-                    // If object contains explosionPrefab, initiale and give velocity
-                    if (lifespanC.explosionPrefab)
-                    {
-                        var explosion = Object.Instantiate(lifespanC.explosionPrefab, transform.position, transform.rotation);
-                        var explosionRB = explosion.GetComponent<Rigidbody>();
-                        explosionRB.velocity = rigidbody.velocity;
-                        explosionRB.angularVelocity = Vector3.zero;
-
-                        //// If object contains particles, split them and destroy them when they're clear of particles
-                        //if (lifespanC.ObjectParticles)
-                        //{
-                        //    var particles = lifespanC.ObjectParticles;
-                        //    particles.transform.parent = null;
-                        //    var emit = particles.emission;
-                        //    emit.rateOverTime = 0;
-                        //    if (!particles.IsAlive())
-                        //    {
-                        //        Object.Destroy(particles);
-                        //    }
-                        //}
-
-
-                    }
-                    Object.Destroy(lifespanC.gameObject);
+                    var explosion = Object.Instantiate(lifespanC.explosionPrefab, transform.position, transform.rotation);
+                    var explosionRB = explosion.GetComponent<Rigidbody>();
+                    explosionRB.velocity = rigidbody.velocity;
+                    explosionRB.angularVelocity = Vector3.zero;
                     
                 }
-                else
-                {
-                    lifespanC.lifespan -= deltatime;
-                }
-            }
+                EntityManager.SetComponentData(components.entities[i], new DeathData { deathState = DeathEnum.Dead });
 
+            }
+            else
+            {
+                lifespanC.lifespan -= deltatime;
+            }
         }
+
+
     }
 }

@@ -9,4 +9,11 @@ public class TargetComponent : MonoBehaviour
     public int targetedBy;
     public int tempTargetedBy;
     public bool isCloseEnoughToWaypoint;
+    public float maxDistance = 100f;
+
+    // Used for Unit Testing Only
+    public void Construct(float maxDistance)
+    {
+        this.maxDistance = maxDistance;
+    }
 }

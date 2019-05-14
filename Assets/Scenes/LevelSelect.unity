@@ -1935,49 +1935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2c82884d0ae4b3ba0c875ab6f7258f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2056686134
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2056686136}
-  - component: {fileID: 2056686135}
-  m_Layer: 0
-  m_Name: PlayerPrefs Reset
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &2056686135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056686134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2427576b5afdd4d4d880b8641eda5120, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2056686136
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056686134}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.614912, y: 79.681015, z: 72.541214}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &2134023512 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1308861584960126565, guid: 16108a8e191832947bf178351fe4d0a6,

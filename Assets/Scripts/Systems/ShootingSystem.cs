@@ -21,6 +21,8 @@ public class ShootingSystem : ComponentSystem
     protected override void OnUpdate()
     {
         var deltaTime = Time.deltaTime;
+        float rotationSpeed = 10f;
+
 
         for (int i = 0; i < components.Length; i++)
         {
@@ -31,11 +33,11 @@ public class ShootingSystem : ComponentSystem
             var transform = components.transform[i];
 
             // Functionality
-            if (targetInRangeC.isInRange)
+            if (targetInRangeC.isInRange && aimC.target)
             {
                 var pos = aimC.target.position - transform.position;
                 Quaternion targetRotation = Quaternion.LookRotation(pos);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * deltaTime);
 
                 
 
@@ -80,13 +82,11 @@ public class ShootingSystem : ComponentSystem
                 }
             }
 
-            
 
-            weaponC.fireCountdown -= deltaTime;
-
-
-
-            
+            if (weaponC.fireCountdown > 0)
+            {
+                weaponC.fireCountdown -= deltaTime;
+            }
         }
     }
 }

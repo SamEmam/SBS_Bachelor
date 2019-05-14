@@ -17,6 +17,9 @@ public class TargetInRangeSystem : ComponentSystem
 
     protected override void OnUpdate()
     {
+        float maxDistance = 150f;
+        string waypointTag = "Waypoint";
+
         for (int i = 0; i < components.Length; i++)
         {
             // Setup
@@ -30,9 +33,16 @@ public class TargetInRangeSystem : ComponentSystem
                 var directionToTarget = aimC.weaponBase.position - aimC.target.position;
                 var angle = Vector3.Angle(aimC.weaponBase.forward, directionToTarget);
 
+                // Calculate distance between this ship and other ship
+                var dist = Vector3.Distance(aimC.weaponBase.position, aimC.target.position);
+                bool withinRange = false;
+                if (dist < maxDistance)
+                {
+                    withinRange = true;
+                }
 
 
-                if (Mathf.Abs(angle) > targetInRangeC.minRange && Mathf.Abs(angle) < targetInRangeC.maxRange && aimC.target.tag != "Waypoint")
+                if (withinRange && Mathf.Abs(angle) > targetInRangeC.minRange && Mathf.Abs(angle) < targetInRangeC.maxRange && aimC.target.tag != waypointTag)
                 {
                     targetInRangeC.isInRange = true;
                     //Debug.DrawLine(transform.position, aimC.target.position, Color.green);

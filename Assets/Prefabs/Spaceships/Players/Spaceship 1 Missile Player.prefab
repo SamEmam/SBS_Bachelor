@@ -725,6 +725,9 @@ MonoBehaviour:
   - {fileID: 2569468151963803125}
   - {fileID: 2569468153035378465}
   - {fileID: 2569468151378406430}
+  useLaser: 0
+  lineRenderer: {fileID: 0}
+  laserPoint: {fileID: 0}
 --- !u!114 &2569468153170539103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2793,7 +2796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    fluidMovement: 1
+    movementType: 2
     movementSpeed: 8
 --- !u!114 &5869516207357562409
 MonoBehaviour:
@@ -2822,7 +2825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    isDead: 0
+    deathState: 0
 --- !u!114 &5869516207357562407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2896,6 +2899,7 @@ MonoBehaviour:
   targetedBy: 0
   tempTargetedBy: 0
   isCloseEnoughToWaypoint: 1
+  maxDistance: 100
 --- !u!114 &5869516207357562402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2909,8 +2913,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoint: {fileID: 0}
-  maxDistFromWaypoint: 50
+  maxDistFromWaypoint: 75
   waypointParticles: {fileID: 0}
+  waypointEnum: 0
 --- !u!114 &5869516207357562401
 MonoBehaviour:
   m_ObjectHideFlags: 0
