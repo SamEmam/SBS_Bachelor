@@ -40,9 +40,8 @@ public class AsteroidSystem : ComponentSystem
                     var size = Random.Range(asteroidC.minSize, asteroidC.maxSize);
                     transform.localScale = new Vector3(size, size, size);
                 }
-                
+                counter++;
             }
-            counter++;
         }
     }
 }

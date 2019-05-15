@@ -30,10 +30,11 @@ public class TargetInRangeSystem : ComponentSystem
             // New Functionality
             if (aimC.target)
             {
+                // Calculate angle between weaponbase and other ship
                 var directionToTarget = aimC.weaponBase.position - aimC.target.position;
                 var angle = Vector3.Angle(aimC.weaponBase.forward, directionToTarget);
 
-                // Calculate distance between this ship and other ship
+                // Calculate distance between weaponbase and other ship
                 var dist = Vector3.Distance(aimC.weaponBase.position, aimC.target.position);
                 bool withinRange = false;
                 if (dist < maxDistance)

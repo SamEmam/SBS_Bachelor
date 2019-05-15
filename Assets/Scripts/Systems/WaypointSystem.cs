@@ -4,7 +4,6 @@ using UnityEngine;
 using Unity.Entities;
 using System;
 
-[UpdateAfter(typeof(TargetSystem))]
 public class WaypointSystem : ComponentSystem
 {
     struct Components
@@ -31,6 +30,11 @@ public class WaypointSystem : ComponentSystem
             var transform = components.transform[i];
 
             // Functionality
+            if (rotationC.target == null)
+            {
+                rotationC.target = waypointC.waypoint;
+            }
+
             var dist = Vector3.Distance(waypointC.waypoint.position, transform.position);
             if (dist > waypointC.maxDistFromWaypoint)
             {

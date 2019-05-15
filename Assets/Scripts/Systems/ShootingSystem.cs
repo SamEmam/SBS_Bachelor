@@ -5,6 +5,7 @@ using Unity.Entities;
 using Unity.Collections;
 using Unity.Transforms;
 
+[UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 public class ShootingSystem : ComponentSystem
 {
     struct Components
@@ -59,6 +60,7 @@ public class ShootingSystem : ComponentSystem
                     {
                         if (!weaponC.lineRenderer.enabled)
                         {
+                            weaponC.laserPoint.gameObject.SetActive(true);
                             weaponC.lineRenderer.enabled = true;
                         }
                         weaponC.laserPoint.transform.parent = null;
@@ -78,7 +80,7 @@ public class ShootingSystem : ComponentSystem
                 if (weaponC.lineRenderer.enabled)
                 {
                     weaponC.lineRenderer.enabled = false;
-                    weaponC.laserPoint.transform.localPosition = Vector3.zero;
+                    weaponC.laserPoint.gameObject.SetActive(false);
                 }
             }
 

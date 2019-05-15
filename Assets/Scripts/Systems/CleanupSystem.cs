@@ -23,6 +23,7 @@ public class CleanupSystem : ComponentSystem
         {
             var entity = components.entities[i];
             var transform = components.transform[i];
+
             var deathC = em.GetComponentData<DeathData>(entity);
 
             if (transform.gameObject && deathC.deathState == DeathEnum.Dead)

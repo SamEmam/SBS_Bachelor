@@ -34,7 +34,7 @@ public class DeathSystem : ComponentSystem
             {
                 if (deathC.deathState == DeathEnum.Alive)
                 {
-                    EntityManager.SetComponentData(components.entities[i], new DeathData { deathState = DeathEnum.Dead });
+                    em.SetComponentData(entity, new DeathData { deathState = DeathEnum.Dead });
                 }
                 
                 //var explosion = Object.Instantiate(deathC.deathEffect, transform.position, Quaternion.identity);

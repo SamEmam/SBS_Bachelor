@@ -15,7 +15,6 @@ public class SpawnSystem : ComponentSystem
     }
 
     [Inject] private Components components;
-
     
     protected override void OnUpdate()
     {

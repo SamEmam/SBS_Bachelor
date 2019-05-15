@@ -164,9 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8bb956e135d9db43879255a46ae439a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasSetSize: 1
-  minSize: 1
-  maxSize: 10
+  hasSetSize: 0
+  minSize: 0.1
+  maxSize: 1.5
 --- !u!54 &3284233568586565665
 Rigidbody:
   m_ObjectHideFlags: 0

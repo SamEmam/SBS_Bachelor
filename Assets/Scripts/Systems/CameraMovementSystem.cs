@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
 
+
 public class CameraMovementSystem : ComponentSystem
 {
     struct Components
@@ -23,15 +24,15 @@ public class CameraMovementSystem : ComponentSystem
 
         foreach (var entity in GetEntities<Components>())
         {
-            // if position is less than minHeight, set height to min
-            if (entity.transform.position.y < camMinHeight)
+            // if position is less than minHeight, set height to min + 1
+            if (entity.transform.position.y <= camMinHeight)
             {
-                entity.transform.position = new Vector3(entity.transform.position.x, camMinHeight, entity.transform.position.z);
+                entity.transform.position = new Vector3(entity.transform.position.x, camMinHeight + 1, entity.transform.position.z);
             }
-            // if position is more than maxHeight, set height to max
-            else if (entity.transform.position.y > camMaxHeight)
+            // if position is more than maxHeight, set height to max - 1
+            else if (entity.transform.position.y >= camMaxHeight)
             {
-                entity.transform.position = new Vector3(entity.transform.position.x, camMaxHeight, entity.transform.position.z);
+                entity.transform.position = new Vector3(entity.transform.position.x, camMaxHeight - 1, entity.transform.position.z);
             }
 
             // If camera under min height, check if scroll is positive

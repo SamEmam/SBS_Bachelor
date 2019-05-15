@@ -4,7 +4,7 @@ using UnityEngine;
 using Unity.Entities;
 using System;
 
-[UpdateBefore(typeof(TargetSystem))]
+[UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 public class RotationSystem : ComponentSystem
 {
     struct Components
