@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 4662826768383235463}
   - component: {fileID: 4662826768383235456}
   - component: {fileID: 4662826768383235457}
+  - component: {fileID: 5426044822355339336}
   m_Layer: 0
   m_Name: Gun 1 (1)
   m_TagString: Untagged
@@ -399,6 +400,19 @@ MonoBehaviour:
   target: {fileID: 0}
   parentTransform: {fileID: 4662826768574044534}
   weaponBase: {fileID: 4662826768574044534}
+--- !u!114 &5426044822355339336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4662826768383235459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &4662826768574044516
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +432,6 @@ GameObject:
   - component: {fileID: 4662826768574044543}
   - component: {fileID: 4662826768574044536}
   - component: {fileID: 4662826768574044537}
-  - component: {fileID: 4662826768574044538}
   - component: {fileID: 4662826768574044517}
   m_Layer: 0
   m_Name: Spaceship 1 Gun Enemy
@@ -614,20 +627,6 @@ MonoBehaviour:
   maxDistFromWaypoint: 125
   waypointParticles: {fileID: 0}
   waypointEnum: 1
---- !u!114 &4662826768574044538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4662826768574044516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500ff0f920b61f7459e4aaf81b60c4e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    closestDistance: 10000
 --- !u!65 &4662826768574044517
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -733,6 +732,7 @@ GameObject:
   - component: {fileID: 5914705448132325978}
   - component: {fileID: 5914705448132325977}
   - component: {fileID: 5914705448132325976}
+  - component: {fileID: 6405500402250483413}
   m_Layer: 0
   m_Name: Gun 1 (2)
   m_TagString: Untagged
@@ -819,6 +819,19 @@ MonoBehaviour:
   target: {fileID: 0}
   parentTransform: {fileID: 4662826768574044534}
   weaponBase: {fileID: 4662826768574044534}
+--- !u!114 &6405500402250483413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5914705448132325990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &5914705448340157976
 GameObject:
   m_ObjectHideFlags: 0

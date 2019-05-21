@@ -15362,7 +15362,9 @@ PrefabInstance:
       propertyPath: enemiesText
       value: 
       objectReference: {fileID: 2073591611}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 813650420292040520, guid: 2aa6d206f73427f4fb65806d3ee735b9, type: 3}
+    - {fileID: 813650420292040521, guid: 2aa6d206f73427f4fb65806d3ee735b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2aa6d206f73427f4fb65806d3ee735b9, type: 3}
 --- !u!1 &813650420292040519 stripped
 GameObject:

@@ -8,9 +8,6 @@ using System;
 public struct DeathData : IComponentData
 {
     public DeathEnum deathState;
-
-    //public ParticleSystem deathEffect;
-    
 }
 
 public class DeathComponent : ComponentDataProxy<DeathData>

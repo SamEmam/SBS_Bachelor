@@ -28,29 +28,29 @@ public class LifespanSystem : ComponentSystem
             var lifespanC = components.lifespanC[i];
             var rigidbody = components.rigidbody[i];
             var transform = components.transform[i];
+            var entity = components.entities[i];
 
             // Functionality
-            if (lifespanC.lifespan <= 0 && !lifespanC.lifeHasEnded)
+            if (lifespanC.lifespan <= 0 && !lifespanC.lifeHasEnded)                                                                 // If lifespan is <= 0 and lifespan hasn't been <= 0 before
             {
                 lifespanC.lifeHasEnded = true;
-                // If object contains explosionPrefab, initiale and give velocity
+
+                // If object contains explosionPrefab, initiate explosion and inherit velocity
                 if (lifespanC.explosionPrefab)
                 {
-                    var explosion = Object.Instantiate(lifespanC.explosionPrefab, transform.position, transform.rotation);
-                    var explosionRB = explosion.GetComponent<Rigidbody>();
-                    explosionRB.velocity = rigidbody.velocity;
-                    explosionRB.angularVelocity = Vector3.zero;
+                    var explosion = Object.Instantiate(lifespanC.explosionPrefab, transform.position, transform.rotation);          // Instantiate exposion prefab
+                    var explosionRB = explosion.GetComponent<Rigidbody>();                                                          // Get a reference to rigidbody of explosion
+                    explosionRB.velocity = rigidbody.velocity;                                                                      // Inherit the velocity
+                    explosionRB.angularVelocity = Vector3.zero;                                                                     // Set the angular velocity to 0
                     
                 }
-                EntityManager.SetComponentData(components.entities[i], new DeathData { deathState = DeathEnum.Dead });
+                EntityManager.SetComponentData(entity, new DeathData { deathState = DeathEnum.Dead });                              // Update the deathState
 
             }
             else
             {
-                lifespanC.lifespan -= deltatime;
+                lifespanC.lifespan -= deltatime;                                                                                    // Count down lifespan
             }
         }
-
-
     }
 }

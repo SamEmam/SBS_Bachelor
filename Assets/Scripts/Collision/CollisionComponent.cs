@@ -40,9 +40,8 @@ public class CollisionComponent : MonoBehaviour
 
         entityManager.SetComponentData<CollisionDataComponent>(collidingEntity, new CollisionDataComponent
         {
-            State = newState,
-            OtherEntity = entity,
-            Collision = new CollisionData(collision)
+            collisionState = newState,
+            otherEntity = entity
         });
     }
 }

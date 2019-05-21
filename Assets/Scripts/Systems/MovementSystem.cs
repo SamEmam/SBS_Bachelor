@@ -12,7 +12,6 @@ public class MovementSystem : ComponentSystem
         public ComponentDataArray<MovementData> movementC;
         public ComponentArray<Rigidbody> rigidbody;
         public ComponentArray<Transform> transform;
-        public EntityArray entities;
     }
 
     [Inject] private Components components;
@@ -20,23 +19,23 @@ public class MovementSystem : ComponentSystem
     protected override void OnUpdate()
     {
         float deltaTime = Time.deltaTime;
+        var movementSpeedMultiplier = 75f;
 
         for (int i = 0; i < components.Length; i++)
         {
             // Setup
-            var entity = components.entities[i];
             var movementC = components.movementC[i];
             var rigidbody = components.rigidbody[i];
             var transform = components.transform[i];
 
             // Functionality
-            if (movementC.movementType == MovementType.vectorMovement)
-            {
-                transform.position += transform.forward * movementC.movementSpeed * deltaTime;
+            if (movementC.movementType == MovementType.vectorMovement)                                          // If vector movement
+            {   
+                transform.position += transform.forward * movementC.movementSpeed * deltaTime;                  // Move transform forward
             }
-            else if (movementC.movementType == MovementType.rigidbodyMovement)
+            else if (movementC.movementType == MovementType.rigidbodyMovement)                                  // If rigidbody movement
             {
-                rigidbody.AddForce(transform.forward * movementC.movementSpeed * 75);
+                rigidbody.AddForce(transform.forward * movementC.movementSpeed * movementSpeedMultiplier);      // Add forward velocity to rigidbody
             }
         }
     }

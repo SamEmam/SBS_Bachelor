@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4892312790773593362}
   - component: {fileID: 4892312790773593361}
   - component: {fileID: 4892312790773593360}
+  - component: {fileID: 5115108794739632967}
+  - component: {fileID: 8886537555352621370}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -108,6 +110,32 @@ MonoBehaviour:
   target: {fileID: 0}
   parentTransform: {fileID: 8047865350479808084}
   weaponBase: {fileID: 4892312792465832622}
+--- !u!114 &5115108794739632967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892312790773593366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
+--- !u!114 &8886537555352621370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892312790773593366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &4892312790904089215
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +982,6 @@ GameObject:
   - component: {fileID: 8047865350479808093}
   - component: {fileID: 8047865350479808090}
   - component: {fileID: 8047865350479808091}
-  - component: {fileID: 8047865350479808088}
   - component: {fileID: 8047865350479808089}
   m_Layer: 0
   m_Name: Spaceship 2 Missile Player
@@ -1148,20 +1175,6 @@ MonoBehaviour:
   maxDistFromWaypoint: 75
   waypointParticles: {fileID: 0}
   waypointEnum: 0
---- !u!114 &8047865350479808088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8047865350479808070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500ff0f920b61f7459e4aaf81b60c4e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    closestDistance: 10000
 --- !u!136 &8047865350479808089
 CapsuleCollider:
   m_ObjectHideFlags: 0

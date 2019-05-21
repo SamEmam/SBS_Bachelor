@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: 259048029367974086}
   - component: {fileID: 259048029367974081}
   - component: {fileID: 259048029367974080}
-  - component: {fileID: 259048029367974083}
   - component: {fileID: 259048029367974108}
   m_Layer: 0
   m_Name: Spaceship 1 Missile Enemy
@@ -215,20 +214,6 @@ MonoBehaviour:
   maxDistFromWaypoint: 125
   waypointParticles: {fileID: 0}
   waypointEnum: 1
---- !u!114 &259048029367974083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259048029367974109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500ff0f920b61f7459e4aaf81b60c4e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    closestDistance: 10000
 --- !u!65 &259048029367974108
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2955,6 +2940,7 @@ GameObject:
   - component: {fileID: 8161774322669880510}
   - component: {fileID: 8161774322669880509}
   - component: {fileID: 8161774322669880508}
+  - component: {fileID: 6316904646673444083}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -3050,6 +3036,19 @@ MonoBehaviour:
   target: {fileID: 0}
   parentTransform: {fileID: 259048029367974095}
   weaponBase: {fileID: 8161774320973646594}
+--- !u!114 &6316904646673444083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8161774322669880506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &8161774323003501101
 GameObject:
   m_ObjectHideFlags: 0

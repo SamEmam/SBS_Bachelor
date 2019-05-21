@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7261417987700018502}
   - component: {fileID: 3909915825017045635}
   - component: {fileID: 1874217440}
+  - component: {fileID: 3509387397175562041}
   m_Layer: 0
   m_Name: Laser 1 (1)
   m_TagString: Untagged
@@ -196,6 +197,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &3509387397175562041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874217438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &1874217439
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +224,7 @@ GameObject:
   - component: {fileID: 5568776318121031759}
   - component: {fileID: 8426624859138043362}
   - component: {fileID: 1874217441}
+  - component: {fileID: 1589669243842270876}
   m_Layer: 0
   m_Name: Laser 1 (2)
   m_TagString: Untagged
@@ -392,6 +407,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &1589669243842270876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874217439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &552041391825090276
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,7 +2239,6 @@ GameObject:
   - component: {fileID: 1399421712480221893}
   - component: {fileID: 4875223630593961198}
   - component: {fileID: 1221749997522258927}
-  - component: {fileID: 5710463218414465759}
   - component: {fileID: 35570158919074893}
   m_Layer: 0
   m_Name: Spaceship 1 Laser Player
@@ -2407,20 +2434,6 @@ MonoBehaviour:
   maxDistFromWaypoint: 75
   waypointParticles: {fileID: 0}
   waypointEnum: 0
---- !u!114 &5710463218414465759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6818950567122819611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500ff0f920b61f7459e4aaf81b60c4e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    closestDistance: 10000
 --- !u!65 &35570158919074893
 BoxCollider:
   m_ObjectHideFlags: 0

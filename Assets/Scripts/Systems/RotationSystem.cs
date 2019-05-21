@@ -12,7 +12,6 @@ public class RotationSystem : ComponentSystem
         public readonly int Length;
         public ComponentArray<RotationComponent> rotationC;
         public ComponentArray<Transform> transform;
-        public EntityArray entities;
     }
 
     [Inject] private Components components;
@@ -24,18 +23,16 @@ public class RotationSystem : ComponentSystem
         for (int i = 0; i < components.Length; i++)
         {
             // Setup
-            var entity = components.entities[i];
             var rotationC = components.rotationC[i];
             var transform = components.transform[i];
 
             // Functionality
-            if (rotationC.target)
+            if (rotationC.target)                                                                                                   // If target is not null
             {
-                var pos = (rotationC.target.position - transform.position) + rotationC.target.forward;
-                Quaternion targetRotation = Quaternion.LookRotation(pos);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationC.rotationSpeed * deltaTime);
+                var pos = (rotationC.target.position - transform.position) + rotationC.target.forward;                              // Get position of target if position of this transform was (0, 0, 0)
+                Quaternion targetRotation = Quaternion.LookRotation(pos);                                                           // Set the rotation from (0, 0, 0) to pos
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationC.rotationSpeed * deltaTime);     // Rotate towards target rotation over time
             }
-            
         }
     }
 }

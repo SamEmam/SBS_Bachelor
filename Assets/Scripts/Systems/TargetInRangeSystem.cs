@@ -10,7 +10,6 @@ public class TargetInRangeSystem : ComponentSystem
         public readonly int Length;
         public ComponentArray<AimComponent> aimC;
         public ComponentArray<TargetInRangeComponent> targetInRangeC;
-        public ComponentArray<Transform> transform;
     }
 
     [Inject] private Components components;
@@ -25,37 +24,34 @@ public class TargetInRangeSystem : ComponentSystem
             // Setup
             var aimC = components.aimC[i];
             var targetInRangeC = components.targetInRangeC[i];
-            var transform = components.transform[i];
 
-            // New Functionality
-            if (aimC.target)
+            // Functionality
+            if (aimC.target)                                                                                // If target is not null
             {
-                // Calculate angle between weaponbase and other ship
                 var directionToTarget = aimC.weaponBase.position - aimC.target.position;
-                var angle = Vector3.Angle(aimC.weaponBase.forward, directionToTarget);
-
-                // Calculate distance between weaponbase and other ship
-                var dist = Vector3.Distance(aimC.weaponBase.position, aimC.target.position);
+                var angle = Vector3.Angle(aimC.weaponBase.forward, directionToTarget);                      // Calculate angle between weaponbase and other ship
+                
+                var dist = Vector3.Distance(aimC.weaponBase.position, aimC.target.position);                // Calculate distance between weaponbase and other ship
                 bool withinRange = false;
-                if (dist < maxDistance)
+                if (dist < maxDistance)                                                                     // Is within distance if distance is < maxDistance
                 {
                     withinRange = true;
                 }
-
-
+                
+                /*
+                 * If distance within range
+                 * If angle within minRange and maxRange
+                 * If target.tag is not waypointTag
+                 */
                 if (withinRange && Mathf.Abs(angle) > targetInRangeC.minRange && Mathf.Abs(angle) < targetInRangeC.maxRange && aimC.target.tag != waypointTag)
                 {
                     targetInRangeC.isInRange = true;
-                    //Debug.DrawLine(transform.position, aimC.target.position, Color.green);
                 }
                 else
                 {
                     targetInRangeC.isInRange = false;
-                    //Debug.DrawLine(transform.position, aimC.target.position, Color.red);
                 }
             }
-            
         }
-        
     }
 }

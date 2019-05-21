@@ -10,7 +10,6 @@ public class TargetSystem : ComponentSystem
         public readonly int Length;
         public ComponentArray<RotationComponent> rotationC;
         public ComponentArray<TargetComponent> targetC;
-        public ComponentDataArray<ClosestData> closestC;
         public ComponentDataArray<FactionData> factionC;
         public ComponentArray<Transform> transform;
         public EntityArray entities;
@@ -30,18 +29,12 @@ public class TargetSystem : ComponentSystem
             var entity = components.entities[i];
             var rotationC = components.rotationC[i];
             var targetC = components.targetC[i];
-            var closestC = components.closestC[i];
-            var factionC = components.factionC[i];
             var transform = components.transform[i];
 
-            factionC = em.GetComponentData<FactionData>(entity);
+            var factionC = em.GetComponentData<FactionData>(entity);
 
             targetC.tempTargetedBy = 0;
             
-            
-
-            // Functionality
-
             // Other ship
             for (int j = 0; j < components.Length; j++)
             {
@@ -49,45 +42,48 @@ public class TargetSystem : ComponentSystem
                 var otherEntity = components.entities[j];
                 var otherRotationC = components.rotationC[j];
                 var otherTargetC = components.targetC[j];
-                var otherClosestC = components.closestC[j];
-                var otherFactionC = components.factionC[i];
                 var otherTransform = components.transform[j];
 
-                otherFactionC = em.GetComponentData<FactionData>(otherEntity);
+                var otherFactionC = em.GetComponentData<FactionData>(otherEntity);
+
                 targetC.enemyScore = int.MaxValue;
 
-                // Calculate distance between this ship and other ship
-                var dist = Vector3.Distance(transform.position, otherTransform.position);
+                // Functionality
+                var dist = Vector3.Distance(transform.position, otherTransform.position);                               // Calculate distance between this ship and other ship
                 bool withinRange = false;
-                if (dist < targetC.maxDistance)
+                if (dist < targetC.maxDistance)                                                                         // Check if within maxDistance
                 {
                     withinRange = true;
                 }
-
-                // Functionality
+                
                 // Check if this ship is not equal to other ship and faction is not equal
+                /*
+                 * If distance within range
+                 * And this ship is not other ship
+                 * And this ship is close enough to waypoint
+                 * And this faction is not otherFaction
+                 * And this tag is not other tag
+                 */
                 if (withinRange && transform != otherTransform && targetC.isCloseEnoughToWaypoint)
                 {
                     if (factionC.faction != otherFactionC.faction && transform.tag != otherTransform.tag)
                     {
-                        // Check if target is Objective
-                        if (otherFactionC.faction == FactionEnum.Objective)
+                        if (otherFactionC.faction == FactionEnum.Objective)                                     // Check if target is Objective and deduct score
                         {
                             targetC.enemyScore -= 2000;
                         }
 
-                        // Check if targeted by other ship
-                        if (rotationC.target == otherRotationC.target)
+                        if (rotationC.target == otherRotationC.target)                                          // Check if targeted by other ship, deduct score, and +1 to ships targeted by
                         {
                             targetC.enemyScore -= 1000;
                             targetC.tempTargetedBy++;
                         }
 
-                        // Check targeted by amount
-                        targetC.enemyScore -= targetC.targetedBy * 200;
+                        
+                        targetC.enemyScore -= targetC.targetedBy * 200;                                         // Check targeted by amount and deduct score
 
-                        // Check distance between this ship and other ship
-                        if (dist < 50)
+                        
+                        if (dist < 50)                                                                          // Check distance between this ship and other ship, and deduct score
                         {
                             targetC.enemyScore -= (int)(dist * 10);
                         }
@@ -103,91 +99,19 @@ public class TargetSystem : ComponentSystem
                         {
                             targetC.enemyScore -= (int)(dist * 2);
                         }
-
-
-
-                        // Set new target
-                        if (targetC.enemyScore >= targetC.targetScore)
+                        
+                        
+                        if (targetC.enemyScore >= targetC.targetScore)                                          // Set new target if score of othership is higher than current target
                         {
                             targetC.targetScore = targetC.enemyScore;
                             rotationC.target = otherTransform;
                         }
                     }
-                    
                 }
             }
-            targetC.targetedBy = targetC.tempTargetedBy;
+
+            targetC.targetedBy = targetC.tempTargetedBy;                                                        // Set amount of ships targeted by and reset temp counter
             targetC.targetScore = 0;
         }
     }
 }
-
-    // OLD TARGET SYSTEM
-
-    //protected override void OnUpdate()
-    //{
-    //    // This ship
-    //    for (int i = 0; i < components.Length; i++)
-    //    {
-    //        // Setup
-    //        var entity = components.entities[i];
-    //        var rotationC = components.rotationC[i];
-    //        var closestC = components.closestC[i];
-    //        var factionC = components.factionC[i];
-    //        var transform = components.transform[i];
-
-    //        // Functionality
-    //        closestC.closestDistance = Mathf.Infinity;
-
-    //        if (rotationC.target)
-    //        {
-    //            lastEnemy = rotationC.target;
-    //        }
-
-    //        // Other ship
-    //        for (int j = 0; j < components.Length; j++)
-    //        {
-    //            // Setup
-    //            var otherEntity = components.entities[j];
-    //            var otherRotationC = components.rotationC[j];
-    //            var otherClosestC = components.closestC[j];
-    //            var otherFactionC = components.factionC[i];
-    //            var otherTransform = components.transform[j];
-
-    //            // Functionality
-
-    //            if (!lastEnemy)
-    //            {
-    //                lastEnemy = otherTransform.transform;
-    //            }
-
-    //            //if (factionC.faction == otherFactionC.faction)
-    //            //{
-    //            //    return;
-    //            //}
-
-    //            // If this ship is not other ship, and if othership is not our current target
-    //            if (transform != otherTransform && otherTransform.transform != lastEnemy)
-    //            {
-    //                // Calculate distance between this ship and other ship
-    //                var dist = Vector3.Distance(transform.position, otherTransform.position);
-
-    //                // If distance between other ship is shorter than closest
-    //                // Sets new closest enemy
-    //                if (dist < closestC.closestDistance)
-    //                {
-    //                    closestC.closestDistance = dist;
-    //                    rotationC.target = otherTransform.transform;
-    //                }
-
-    //                // If othership is close, it is saved as lastEnemy, and cannot be targeted until new lastEnemy
-    //                // ClosestDist reset
-    //                if (closestC.closestDistance < 40)
-    //                {
-    //                    lastEnemy = rotationC.target;
-    //                    closestC.closestDistance = Mathf.Infinity;
-    //                }
-    //            }
-    //        }
-    //    }
-    //}

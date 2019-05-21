@@ -40,7 +40,13 @@ public class InputSystem : ComponentSystem
             inputC.Vertical = vertical;
             inputC.Scroll = scroll;
 
-            // Check mouse to Objective LayerMask
+            // Functionality
+
+            /*
+             * If mouse clicks on objectiveLayerMask
+             * set the position, and set the parent to the objective
+             * play waypoint particles
+             */
             if (Physics.Raycast(cameraRay, hitInfo: out RaycastHit objectiveHit, maxDistance: 10000, layerMask: objectiveLayerMask))
             {
                 if (Input.GetMouseButtonDown(0))
@@ -51,7 +57,12 @@ public class InputSystem : ComponentSystem
                 }
             }
 
-            // Check mouse to y = 0 / floor LayerMask
+            /*
+             * If mouse clicks on floorLayerMask
+             * set the position, and set the parent to null
+             * reset the rotation of the waypoint
+             * play waypoint particles
+             */
             else if (Physics.Raycast(cameraRay, hitInfo: out RaycastHit floorHit, maxDistance: 10000, layerMask: floorLayerMask))
             {
                 if (Input.GetMouseButtonDown(0))
@@ -62,8 +73,6 @@ public class InputSystem : ComponentSystem
                     waypointC.waypointParticles.Play();
                 }
             }
-
-            
         }
     }
 }

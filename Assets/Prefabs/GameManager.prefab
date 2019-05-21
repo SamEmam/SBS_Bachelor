@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 813650421002118982}
   - component: {fileID: 813650421002123449}
   - component: {fileID: 813650421002118983}
-  - component: {fileID: 813650421002118981}
   - component: {fileID: 813650421002118980}
   - component: {fileID: 813650421002118978}
+  - component: {fileID: 813650420292040520}
+  - component: {fileID: 813650420292040521}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameIsWon: 0
   GameIsLost: 0
+  missionReward: 700
   gameOverUI: {fileID: 0}
   CompleteLevelUI: {fileID: 0}
 --- !u!114 &813650421002118983
@@ -64,20 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 0}
-  menuSceneName: MainMenu
+  menuSceneName: MainScene
   sceneFader: {fileID: 0}
---- !u!114 &813650421002118981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813650421002123448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &813650421002118980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,3 +99,33 @@ MonoBehaviour:
   enemyTag: Enemy
   playersAlive: 0
   enemiesAlive: 0
+--- !u!114 &813650420292040520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813650421002123448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708ca9150a385d04490e858f808f37ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuSceneName: MainScene
+  levelSelectSceneName: LevelSelect
+  LevelToUnlock: 3
+  sceneFader: {fileID: 0}
+--- !u!114 &813650420292040521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813650421002123448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817248c2cbeb14948919319b3adcbb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuSceneName: MainScene
+  sceneFader: {fileID: 0}

@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 6009981702271730567}
   - component: {fileID: 6009981702271730560}
   - component: {fileID: 6009981702271730561}
+  - component: {fileID: 1683241326312939041}
   m_Layer: 0
   m_Name: Gun 1 (1)
   m_TagString: Untagged
@@ -283,6 +284,19 @@ MonoBehaviour:
   target: {fileID: 0}
   parentTransform: {fileID: 6009981703674826614}
   weaponBase: {fileID: 6009981703674826614}
+--- !u!114 &1683241326312939041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6009981702271730563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &6009981702272673029
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +340,7 @@ GameObject:
   - component: {fileID: 6009981702493318256}
   - component: {fileID: 6009981702493318257}
   - component: {fileID: 6009981702493318258}
+  - component: {fileID: 1953658266531718139}
   m_Layer: 0
   m_Name: Gun 1
   m_TagString: Untagged
@@ -412,6 +427,19 @@ MonoBehaviour:
   target: {fileID: 0}
   parentTransform: {fileID: 6009981703674826614}
   weaponBase: {fileID: 6009981703674826614}
+--- !u!114 &1953658266531718139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6009981702493318268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &6009981702529189425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1499,7 +1527,6 @@ GameObject:
   - component: {fileID: 6009981703674826623}
   - component: {fileID: 6009981703674826616}
   - component: {fileID: 6009981703674826617}
-  - component: {fileID: 6009981703674826618}
   - component: {fileID: 6009981703674826619}
   m_Layer: 0
   m_Name: Spaceship 2 Gun Enemy
@@ -1692,20 +1719,6 @@ MonoBehaviour:
   maxDistFromWaypoint: 125
   waypointParticles: {fileID: 0}
   waypointEnum: 1
---- !u!114 &6009981703674826618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6009981703674826596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500ff0f920b61f7459e4aaf81b60c4e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    closestDistance: 10000
 --- !u!136 &6009981703674826619
 CapsuleCollider:
   m_ObjectHideFlags: 0

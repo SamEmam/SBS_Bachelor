@@ -30,20 +30,21 @@ public class WaypointSystem : ComponentSystem
             var transform = components.transform[i];
 
             // Functionality
-            if (rotationC.target == null)
+            if (rotationC.target == null)                                                       // If ship target is null, set it to waypoint
             {
                 rotationC.target = waypointC.waypoint;
             }
 
-            var dist = Vector3.Distance(waypointC.waypoint.position, transform.position);
-            if (dist > waypointC.maxDistFromWaypoint)
+            var dist = Vector3.Distance(waypointC.waypoint.position, transform.position);       // Calculate distance between ship and waypoint
+
+            if (dist > waypointC.maxDistFromWaypoint)                                           // If distance is larger than max distance
             {
-                rotationC.target = waypointC.waypoint;
+                rotationC.target = waypointC.waypoint;                                          // Set target to waypoint and set isCloseEnoughToWaypoint boolean
                 targetC.isCloseEnoughToWaypoint = false;
             }
             else
             {
-                targetC.isCloseEnoughToWaypoint = true;
+                targetC.isCloseEnoughToWaypoint = true;                                         // Else set isCloseEnoughToWaypoint boolean
             }
         }
     }

@@ -11,7 +11,6 @@ public class AsteroidSystem : ComponentSystem
         public readonly int Length;
         public ComponentArray<AsteroidComponent> asteroidC;
         public ComponentArray<Transform> transform;
-        public EntityArray entities;
     }
 
     [Inject] private Components components;
@@ -20,6 +19,11 @@ public class AsteroidSystem : ComponentSystem
 
     protected override void OnUpdate()
     {
+        /*
+         * If all asteroids has had their size updated
+         * the update method will be interupted before
+         * it iterates through all entities
+         */
         if (counter > components.Length)
         {
             return;
@@ -29,18 +33,18 @@ public class AsteroidSystem : ComponentSystem
             for (int i = 0; i < components.Length; i++)
             {
                 // Setup
-                var entity = components.entities[i];
                 var asteroidC = components.asteroidC[i];
                 var transform = components.transform[i];
 
                 // Functionality
+                // If size has not been set
                 if (!asteroidC.hasSetSize)                  
                 {
-                    asteroidC.hasSetSize = true;
-                    var size = Random.Range(asteroidC.minSize, asteroidC.maxSize);
-                    transform.localScale = new Vector3(size, size, size);
+                    asteroidC.hasSetSize = true;                                            // Update hasSetSize boolean
+                    float size = Random.Range(asteroidC.minSize, asteroidC.maxSize);        // Set float size to a random value between min-max float
+                    transform.localScale = new Vector3(size, size, size);                   // Set the scale to a new vector 3 with size
                 }
-                counter++;
+                counter++;                                                                  // Count up for each asteroid
             }
         }
     }

@@ -2390,6 +2390,7 @@ GameObject:
   - component: {fileID: 6849323139008942066}
   - component: {fileID: 6849323139008942067}
   - component: {fileID: 6849323139008942068}
+  - component: {fileID: 5053658558968875706}
   m_Layer: 0
   m_Name: Left_Wing_Gun
   m_TagString: Untagged
@@ -2475,6 +2476,19 @@ MonoBehaviour:
   target: {fileID: 0}
   parentTransform: {fileID: 8306486467830115088}
   weaponBase: {fileID: 6849323140851128967}
+--- !u!114 &5053658558968875706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6849323139008942070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &6849323139077995548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,6 +2797,7 @@ GameObject:
   - component: {fileID: 6849323139302572559}
   - component: {fileID: 6849323139302572560}
   - component: {fileID: 6849323139302572561}
+  - component: {fileID: 8932723175127010232}
   m_Layer: 0
   m_Name: Right_Eye_Gun
   m_TagString: Untagged
@@ -2870,6 +2885,19 @@ MonoBehaviour:
   target: {fileID: 0}
   parentTransform: {fileID: 8306486467830115088}
   weaponBase: {fileID: 6849323140369707023}
+--- !u!114 &8932723175127010232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6849323139302572563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &6849323139358004027
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,6 +3301,7 @@ GameObject:
   - component: {fileID: 6849323140090612366}
   - component: {fileID: 6849323140090612367}
   - component: {fileID: 6849323140090612368}
+  - component: {fileID: 1315964666215951020}
   m_Layer: 0
   m_Name: Left_Eye_Gun
   m_TagString: Untagged
@@ -3359,6 +3388,19 @@ MonoBehaviour:
   target: {fileID: 0}
   parentTransform: {fileID: 8306486467830115088}
   weaponBase: {fileID: 6849323139240396280}
+--- !u!114 &1315964666215951020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6849323140090612370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &6849323140369707024
 GameObject:
   m_ObjectHideFlags: 0
@@ -3925,6 +3967,7 @@ GameObject:
   - component: {fileID: 6849323140864890659}
   - component: {fileID: 6849323140864890660}
   - component: {fileID: 6849323140864890661}
+  - component: {fileID: 1819234996420843793}
   m_Layer: 0
   m_Name: Right_Wing_Gun
   m_TagString: Untagged
@@ -4010,6 +4053,19 @@ MonoBehaviour:
   target: {fileID: 0}
   parentTransform: {fileID: 8306486467830115088}
   weaponBase: {fileID: 6849323139844002696}
+--- !u!114 &1819234996420843793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6849323140864890663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &6849323140889723665
 GameObject:
   m_ObjectHideFlags: 0
@@ -4733,9 +4789,7 @@ GameObject:
   - component: {fileID: 8306486467830115097}
   - component: {fileID: 8306486467830115102}
   - component: {fileID: 8306486467830115103}
-  - component: {fileID: 8306486467830115100}
   - component: {fileID: 8306486467830115101}
-  - component: {fileID: 8306486467830115073}
   m_Layer: 0
   m_Name: Spaceship 3 Gun Player
   m_TagString: Player
@@ -4949,20 +5003,6 @@ MonoBehaviour:
   maxDistFromWaypoint: 75
   waypointParticles: {fileID: 0}
   waypointEnum: 0
---- !u!114 &8306486467830115100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8306486467830115074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500ff0f920b61f7459e4aaf81b60c4e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    closestDistance: 10000
 --- !u!136 &8306486467830115101
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4977,20 +5017,6 @@ CapsuleCollider:
   m_Height: 9
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: -1}
---- !u!114 &8306486467830115073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8306486467830115074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 848a851640cab9d479d1491e397065e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    damage: 1
 --- !u!1 &8554527303058641919
 GameObject:
   m_ObjectHideFlags: 0
