@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4743687987993528057}
+  - component: {fileID: 9028858994391558387}
   - component: {fileID: 561109070396223009}
   - component: {fileID: 6280404086384037367}
   - component: {fileID: 5617759652289677305}
+  - component: {fileID: 5210709961504287623}
   - component: {fileID: 4163550930276747887}
-  - component: {fileID: 9028858994391558387}
   m_Layer: 0
   m_Name: shootingTestWeaponGO
   m_TagString: TestObject
@@ -37,6 +38,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9028858994391558387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881751027088188959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &561109070396223009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,8 +84,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 0}
   weaponBase: {fileID: 6654790432896032842}
+  parentRotationComponent: {fileID: 0}
 --- !u!114 &5617759652289677305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +101,19 @@ MonoBehaviour:
   isInRange: 1
   minRange: 0
   maxRange: 360
+--- !u!114 &5210709961504287623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881751027088188959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!120 &4163550930276747887
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -183,18 +209,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &9028858994391558387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881751027088188959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6187529896199153201
 GameObject:
   m_ObjectHideFlags: 0

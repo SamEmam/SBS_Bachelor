@@ -31,14 +31,16 @@ public class WeaponRotationSystem : ComponentSystem
             var transform = components.transform[i];
 
             // Functionality
-            aimC.target = aimC.parentRotationComponent.target;                                                                          // Update target to match parent target
+            if (aimC.parentRotationComponent.target)
+            {
+                aimC.target = aimC.parentRotationComponent.target;                                                                      // Update target to match parent target
+            }
 
             if (targetInRangeC.isInRange && aimC.target)                                                                                // If target is not null and in range
             {
                 var pos = aimC.target.position - transform.position;                                                                    // Get position of target if position of this transform was (0, 0, 0)
                 Quaternion targetRotation = Quaternion.LookRotation(pos);                                                               // Set the rotation from (0, 0, 0) to pos
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, weaponRotationC.rotationSpeed * deltaTime);   // Rotate towards target rotation over time
-                
             }
         }
     }

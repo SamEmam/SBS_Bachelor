@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 2027618838049935941}
   weaponBase: {fileID: 2027618838049935941}
+  parentRotationComponent: {fileID: 6489789565005505441}
 --- !u!120 &1874217440
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -310,8 +310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 2027618838049935941}
   weaponBase: {fileID: 2027618838049935941}
+  parentRotationComponent: {fileID: 0}
 --- !u!120 &1874217441
 LineRenderer:
   m_ObjectHideFlags: 0

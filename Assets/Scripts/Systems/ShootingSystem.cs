@@ -13,6 +13,7 @@ public class ShootingSystem : ComponentSystem
         public readonly int Length;
         public ComponentArray<WeaponComponent> weaponC;
         public ComponentArray<AimComponent> aimC;
+        public ComponentArray<TargetInRangeComponent> targetInRangeC;
     }
 
     [Inject] private Components components;
@@ -27,9 +28,10 @@ public class ShootingSystem : ComponentSystem
             // Setup
             var weaponC = components.weaponC[i];
             var aimC = components.aimC[i];
+            var targetInRangeC = components.targetInRangeC[i];
 
             // Functionality
-            if (weaponC.fireCountdown <= 0f)
+            if (weaponC.fireCountdown <= 0f && aimC.target && targetInRangeC.isInRange)
             {
                 if (!weaponC.useLaser)
                 {

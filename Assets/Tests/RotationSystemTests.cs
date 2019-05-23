@@ -71,7 +71,7 @@ public class RotationSystemTests : MonoBehaviour
         var initialRot = testObject.transform.rotation;
 
 
-        yield return null;
+        yield return new WaitForSeconds(0.5f);
 
         var postUpdateRot = testObject.transform.rotation;
         

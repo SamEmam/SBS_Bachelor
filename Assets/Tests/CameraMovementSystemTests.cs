@@ -42,7 +42,7 @@ public class CameraMovementSystemTests : MonoBehaviour
     {
         var cameraController = new GameObject().AddComponent<InputComponent>();
         cameraController.gameObject.tag = "TestObject";
-        cameraController.transform.position = new Vector3(0, 25, 0);
+        cameraController.transform.position = new Vector3(0, 30, 0);
         var initialPos = cameraController.transform.position;
         float horizontal = 1f;
         float vertical = 0f;
@@ -64,7 +64,7 @@ public class CameraMovementSystemTests : MonoBehaviour
     {
         var cameraController = new GameObject().AddComponent<InputComponent>();
         cameraController.gameObject.tag = "TestObject";
-        cameraController.transform.position = new Vector3(0, 25, 0);
+        cameraController.transform.position = new Vector3(0, 30, 0);
         var initialPos = cameraController.transform.position;
         float horizontal = 0f;
         float vertical = 1f;

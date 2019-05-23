@@ -21,7 +21,7 @@ public class MovementSystemTests : MonoBehaviour
         var initialPos = testObject.transform.position;
 
 
-        yield return null;
+        yield return new WaitForSeconds(0.5f);
         
         var postUpdatePos = testObject.transform.position;
         Assert.AreEqual(initialPos.x, postUpdatePos.x);
@@ -63,7 +63,7 @@ public class MovementSystemTests : MonoBehaviour
         var initialPos = testObject.transform.position;
 
 
-        yield return null;
+        yield return new WaitForSeconds(0.5f);
 
         var postUpdatePos = testObject.transform.position;
         Assert.AreEqual(initialPos.x, postUpdatePos.x);

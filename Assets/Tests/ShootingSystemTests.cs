@@ -31,32 +31,7 @@ public class ShootingSystemTests : MonoBehaviour
 
         Assert.AreNotEqual(initialFireCountdown, postFireCountdown);
     }
-
-    [UnityTest]
-    public IEnumerator _If_targetInRange_And_Target_Is_Not_Null_Then_Rotate_Towards_Target_Test()
-    {
-        var testParentObject = Instantiate((GameObject)Resources.Load("Tests/shootingTestParentGO"));
-        var testWeaponObject = Instantiate((GameObject)Resources.Load("Tests/shootingTestWeaponGO"));
-
-        Transform targetTransform = testParentObject.GetComponent<RotationComponent>().target = new GameObject().transform;
-        targetTransform.position = targetTransform.right * 10;
-        testWeaponObject.transform.SetParent(testParentObject.transform);
-
-        float fireRate = 1f;
-        float fireCountdown = 5f;
-        bool useLaser = false;
-        testWeaponObject.GetComponent<WeaponComponent>().Construct(fireRate, fireCountdown, useLaser);
-
-        Quaternion initialRotation = testWeaponObject.transform.rotation;
-
-        yield return new WaitForSeconds(0.5f);
-
-        Quaternion postRotation = testWeaponObject.transform.rotation;
-
-        Assert.AreNotEqual(initialRotation, postRotation);
-        Assert.AreNotEqual(postRotation, testParentObject.transform.rotation);
-    }
-
+    
     [UnityTest]
     public IEnumerator _If_targetInRange_And_Target_Is_Not_Null_And_fireCountdown_Is_Zero_Then_Instantiate_Shot_Test()
     {
@@ -92,11 +67,11 @@ public class ShootingSystemTests : MonoBehaviour
         bool useLaser = true;
         testWeaponObject.GetComponent<WeaponComponent>().Construct(fireRate, fireCountdown, useLaser);
         
-        Assert.False(testWeaponObject.GetComponent<LineRenderer>().enabled);
+        Assert.True(testWeaponObject.transform.Find("firePoint"));
 
         yield return new WaitForSeconds(0.5f);
 
-        Assert.True(testWeaponObject.GetComponent<LineRenderer>().enabled);
+        Assert.False(testWeaponObject.transform.Find("firePoint"));
     }
 
 

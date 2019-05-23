@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6280404086384037367}
   - component: {fileID: 5617759652289677305}
   - component: {fileID: 9028858994391558387}
+  - component: {fileID: 6034977404918281943}
   m_Layer: 0
   m_Name: targetInRangeTestWeaponGO
   m_TagString: TestObject
@@ -48,8 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 0}
   weaponBase: {fileID: 6654790432896032842}
+  parentRotationComponent: {fileID: 0}
 --- !u!114 &5617759652289677305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +78,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6034977404918281943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881751027088188959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237d5a6e7d7ed08449013c8a45900ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &6187529896199153201
 GameObject:
   m_ObjectHideFlags: 0
