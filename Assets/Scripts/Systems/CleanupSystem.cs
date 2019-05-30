@@ -30,7 +30,7 @@ public class CleanupSystem : ComponentSystem
             // Functionality
             if (transform.gameObject && deathC.deathState == DeathEnum.Dead)                    // If deathState is dead, then destroy the GameObject
             {
-                Object.Destroy(transform.gameObject);
+                Object.Destroy(transform.gameObject, 1f);
             }
         }
     }

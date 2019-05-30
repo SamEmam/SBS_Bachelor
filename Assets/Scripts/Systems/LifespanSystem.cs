@@ -31,26 +31,31 @@ public class LifespanSystem : ComponentSystem
             var entity = components.entities[i];
 
             // Functionality
-            if (lifespanC.lifespan <= 0 && !lifespanC.lifeHasEnded)                                                                 // If lifespan is <= 0 and lifespan hasn't been <= 0 before
+            if (lifespanC.lifespan <= 0 && !lifespanC.lifeHasEnded)                                             // If lifespan is <= 0 and lifespan hasn't been <= 0 before
             {
                 lifespanC.lifeHasEnded = true;
 
                 // If object contains explosionPrefab, initiate explosion and inherit velocity
                 if (lifespanC.explosionPrefab)
                 {
-                    var explosion = Object.Instantiate(lifespanC.explosionPrefab, transform.position, transform.rotation);          // Instantiate exposion prefab
-                    var explosionRB = explosion.GetComponent<Rigidbody>();                                                          // Get a reference to rigidbody of explosion
-                    explosionRB.velocity = rigidbody.velocity;                                                                      // Inherit the velocity
-                    explosionRB.angularVelocity = Vector3.zero;                                                                     // Set the angular velocity to 0
-                    
+                    Explode(lifespanC.explosionPrefab, transform, rigidbody.velocity);
                 }
-                EntityManager.SetComponentData(entity, new DeathData { deathState = DeathEnum.Dead });                              // Update the deathState
+
+                EntityManager.SetComponentData(entity, new DeathData { deathState = DeathEnum.Dead });          // Update the deathState
 
             }
             else
             {
-                lifespanC.lifespan -= deltatime;                                                                                    // Count down lifespan
+                lifespanC.lifespan -= deltatime;                                                                // Count down lifespan
             }
         }
+    }
+
+    void Explode(GameObject explosionPrefab, Transform transform, Vector3 velocity)
+    {
+        var explosion = Object.Instantiate(explosionPrefab, transform.position, transform.rotation);            // Instantiate exposion prefab
+        var explosionRB = explosion.GetComponent<Rigidbody>();                                                  // Get a reference to rigidbody of explosion
+        explosionRB.velocity = velocity;                                                                        // Inherit the velocity
+        explosionRB.angularVelocity = Vector3.zero;                                                             // Set the angular velocity to 0
     }
 }

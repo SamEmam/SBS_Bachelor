@@ -21,18 +21,21 @@ public class FleetManager : MonoBehaviour
     // This update method is temporary for hangar
     private void Update()
     {
-        if (smallGunCount)
-        {
-            smallGunCount.text = "Small Gun Ship\n " + PlayerPrefs.GetInt("Fleet_" + 0).ToString();
-            smallMissileCount.text = "Small Missile Ship\n " + PlayerPrefs.GetInt("Fleet_" + 1).ToString();
-            mediumGunCount.text = "Medium Gun Ship\n " + PlayerPrefs.GetInt("Fleet_" + 2).ToString();
-            mediumMissileCount.text = "Medium Missile Ship\n " + PlayerPrefs.GetInt("Fleet_" + 3).ToString();
-            largeGunCount.text = "Large Gun Ship\n " + PlayerPrefs.GetInt("Fleet_" + 4).ToString();
-            smallLaserCount.text = "Small Laser Ship\n " + PlayerPrefs.GetInt("Fleet_" + 5).ToString();
-
-            currencyText.text = "Currency: " + PlayerPrefs.GetInt("Currency");
-        }
+        UpdateHangarText();
         
+    }
+
+    // This text method is temporary for hangar
+    public void UpdateHangarText()
+    {
+        smallGunCount.text = "Small Gun Ship\n " + PlayerPrefs.GetInt("Fleet_" + 0).ToString();
+        smallMissileCount.text = "Small Missile Ship\n " + PlayerPrefs.GetInt("Fleet_" + 1).ToString();
+        mediumGunCount.text = "Medium Gun Ship\n " + PlayerPrefs.GetInt("Fleet_" + 2).ToString();
+        mediumMissileCount.text = "Medium Missile Ship\n " + PlayerPrefs.GetInt("Fleet_" + 3).ToString();
+        largeGunCount.text = "Large Gun Ship\n " + PlayerPrefs.GetInt("Fleet_" + 4).ToString();
+        smallLaserCount.text = "Small Laser Ship\n " + PlayerPrefs.GetInt("Fleet_" + 5).ToString();
+
+        currencyText.text = "Currency: " + PlayerPrefs.GetInt("Currency");
     }
 
     // This reload method is temporary for hangar

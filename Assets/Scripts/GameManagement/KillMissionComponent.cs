@@ -5,5 +5,5 @@ using UnityEngine;
 public class KillMissionComponent : MonoBehaviour
 {
     // Component is responsible for triggering KillMissionSystem
-    public float cooldownBeforeSystemStart;
+    public float cooldownBeforeCheck;
 }

@@ -35,49 +35,61 @@ public class ShootingSystem : ComponentSystem
             {
                 if (!weaponC.useLaser)
                 {
-                    for (int j = 0; j < weaponC.firePoints.Length; j++)
-                    {
-                        var shot = Object.Instantiate(weaponC.shotPrefab, weaponC.firePoints[j].position, weaponC.firePoints[j].rotation);          // For each firepoint, instantiate shot
-                        if (shot.GetComponent<RotationComponent>())
-                        {
-                            shot.GetComponent<RotationComponent>().target = aimC.target;                                                            // If shot has rotation, set inherit target
-                        }
-                    }
+                    ShootProjectile(weaponC.firePoints, weaponC.shotPrefab, aimC.target);
                 }
 
-                else                                                                                    // If uses laser
+                else                                                                                            // If uses laser
                 {
-                    if (!weaponC.lineRenderer.enabled)                                                  // If laser is disabled, enable laser
-                    {
-                        weaponC.laserPoint.gameObject.SetActive(true);
-                        weaponC.lineRenderer.enabled = true;
-                    }
-                    weaponC.laserPoint.transform.parent = null;                                         // Set the laser point parent to null
-                    weaponC.laserPoint.transform.position = aimC.target.position;                       // Set the laser point position to target position
-                    weaponC.lineRenderer.SetPosition(0, weaponC.firePoints[0].position);                // Draw line from firePoint to laser point
-                    weaponC.lineRenderer.SetPosition(1, weaponC.laserPoint.transform.position);
-
-
+                    EnableLaser(weaponC.lineRenderer, weaponC.laserPoint, weaponC.firePoints[0], aimC.target);
                 }
-                weaponC.fireCountdown = 1f / weaponC.fireRate;                                          // Reset countdown to fireRate
+
+                weaponC.fireCountdown = 1f / weaponC.fireRate;                                                  // Reset countdown to fireRate
 
             }
 
-            else if (weaponC.useLaser)                                                                  // if not ready to fire, and uses laser
+            else if (weaponC.useLaser)                                                                          // if not ready to fire, and uses laser
             {
-                if (weaponC.lineRenderer.enabled)                                                       // if laser is enabled, disable laser
-                {
-                    weaponC.lineRenderer.enabled = false;
-                    weaponC.laserPoint.gameObject.SetActive(false);
-                }
+                DisableLaser(weaponC.lineRenderer, weaponC.laserPoint);
             }
-
-
-            if (weaponC.fireCountdown > 0)                                                              // If fireCountdown is more than zero, then count down
+            
+            if (weaponC.fireCountdown > 0)                                                                      // If fireCountdown is more than zero, then count down
             {
                 weaponC.fireCountdown -= deltaTime;
             }
         }
     }
-    
+
+    void ShootProjectile(Transform[] firePoints, GameObject projectilePrefab, Transform target)
+    {
+        for (int j = 0; j < firePoints.Length; j++)
+        {
+            var shot = Object.Instantiate(projectilePrefab, firePoints[j].position, firePoints[j].rotation);        // For each firepoint, instantiate shot
+            if (shot.GetComponent<RotationComponent>())
+            {
+                shot.GetComponent<RotationComponent>().target = target;                                             // If shot has rotation, set inherit target
+            }
+        }
+    }
+
+    void EnableLaser(LineRenderer laser, GameObject laserPoint, Transform firePoint, Transform target)
+    {
+        if (!laser.enabled)                                                     // If laser is disabled, enable laser
+        {
+            laserPoint.gameObject.SetActive(true);
+            laser.enabled = true;
+        }
+        laserPoint.transform.parent = null;                                     // Set the laser point parent to null
+        laserPoint.transform.position = target.position;                        // Set the laser point position to target position
+        laser.SetPosition(0, firePoint.position);                               // Draw line from firePoint to laser point
+        laser.SetPosition(1, laserPoint.transform.position);
+    }
+
+    void DisableLaser(LineRenderer laser, GameObject laserPoint)
+    {
+        if (laser.enabled)                                                      // if laser is enabled, disable laser
+        {
+            laser.enabled = false;
+            laserPoint.SetActive(false);
+        }
+    }
 }

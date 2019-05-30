@@ -29,14 +29,27 @@ public class MovementSystem : ComponentSystem
             var transform = components.transform[i];
 
             // Functionality
+            
+
             if (movementC.movementType == MovementType.vectorMovement)                                          // If vector movement
-            {   
-                transform.position += transform.forward * movementC.movementSpeed * deltaTime;                  // Move transform forward
+            {
+                VectorMovement(transform, movementC.movementSpeed, deltaTime);                                  // Move transform forward
             }
             else if (movementC.movementType == MovementType.rigidbodyMovement)                                  // If rigidbody movement
             {
-                rigidbody.AddForce(transform.forward * movementC.movementSpeed * movementSpeedMultiplier);      // Add forward velocity to rigidbody
+                RigidbodyMovement(rigidbody, movementC.movementSpeed, movementSpeedMultiplier);                 // Add forward velocity to rigidbody
+
             }
         }
+    }
+
+    void RigidbodyMovement(Rigidbody rigidbody, int speed, float speedMultiplier)
+    {
+        rigidbody.AddForce(rigidbody.transform.forward * speed * speedMultiplier);
+    }
+
+    void VectorMovement(Transform transform, int speed, float time)
+    {
+        transform.position += transform.forward * speed * time;
     }
 }

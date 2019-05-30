@@ -38,10 +38,16 @@ public class WeaponRotationSystem : ComponentSystem
 
             if (targetInRangeC.isInRange && aimC.target)                                                                                // If target is not null and in range
             {
-                var pos = aimC.target.position - transform.position;                                                                    // Get position of target if position of this transform was (0, 0, 0)
-                Quaternion targetRotation = Quaternion.LookRotation(pos);                                                               // Set the rotation from (0, 0, 0) to pos
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, weaponRotationC.rotationSpeed * deltaTime);   // Rotate towards target rotation over time
+                RotateWeapon(aimC.target, transform, weaponRotationC.rotationSpeed, deltaTime);
             }
         }
+    }
+
+    // Rotates weapon to aim towards target
+    void RotateWeapon(Transform target, Transform transform, float rotationSpeed, float deltaTime)
+    {
+        var pos = target.position - transform.position;                                                             // Get position of target if position of this transform was (0, 0, 0)
+        Quaternion targetRotation = Quaternion.LookRotation(pos);                                                   // Set the rotation from (0, 0, 0) to pos
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * deltaTime);       // Rotate towards target rotation over time
     }
 }

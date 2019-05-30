@@ -15362,6 +15362,11 @@ PrefabInstance:
       propertyPath: enemiesText
       value: 
       objectReference: {fileID: 2073591611}
+    - target: {fileID: 813650421002118980, guid: 2aa6d206f73427f4fb65806d3ee735b9,
+        type: 3}
+      propertyPath: cooldownBeforeCheck
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 813650420292040520, guid: 2aa6d206f73427f4fb65806d3ee735b9, type: 3}
     - {fileID: 813650420292040521, guid: 2aa6d206f73427f4fb65806d3ee735b9, type: 3}
@@ -15402,6 +15407,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSceneName: MainScene
   sceneFader: {fileID: 2097624557}
+--- !u!114 &813650420292040522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813650420292040519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3662518062387232395
 PrefabInstance:
   m_ObjectHideFlags: 0

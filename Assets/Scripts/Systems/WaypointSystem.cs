@@ -30,22 +30,29 @@ public class WaypointSystem : ComponentSystem
             var transform = components.transform[i];
 
             // Functionality
-            if (rotationC.target == null)                                                       // If ship target is null, set it to waypoint
+            // If spaceships target is null, set target to waypoint
+            if (rotationC.target == null)
             {
                 rotationC.target = waypointC.waypoint;
             }
 
-            var dist = Vector3.Distance(waypointC.waypoint.position, transform.position);       // Calculate distance between ship and waypoint
+            DistanceToWaypointCheck(waypointC.waypoint, transform, waypointC.maxDistFromWaypoint, rotationC, targetC.isCloseEnoughToWaypoint);
+            
+        }
+    }
 
-            if (dist > waypointC.maxDistFromWaypoint)                                           // If distance is larger than max distance
-            {
-                rotationC.target = waypointC.waypoint;                                          // Set target to waypoint and set isCloseEnoughToWaypoint boolean
-                targetC.isCloseEnoughToWaypoint = false;
-            }
-            else
-            {
-                targetC.isCloseEnoughToWaypoint = true;                                         // Else set isCloseEnoughToWaypoint boolean
-            }
+    void DistanceToWaypointCheck(Transform waypoint, Transform spaceship, int maxDistance, RotationComponent rotationC, bool closeEnoughToWaypoint)
+    {
+        var dist = Vector3.Distance(waypoint.position, spaceship.position);     // Calculate distance between ship and waypoint
+
+        if (dist > maxDistance)                                                 // If distance is larger than max distance
+        {
+            rotationC.target = waypoint;                                        // Set target to waypoint and set isCloseEnoughToWaypoint boolean
+            closeEnoughToWaypoint = false;
+        }
+        else
+        {
+            closeEnoughToWaypoint = true;                                       // Else set isCloseEnoughToWaypoint boolean
         }
     }
 }

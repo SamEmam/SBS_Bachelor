@@ -26,25 +26,20 @@ public class TargetInRangeSystem : ComponentSystem
             var targetInRangeC = components.targetInRangeC[i];
 
             // Functionality
-            if (aimC.target)                                                                                // If target is not null
+            if (aimC.target)                                                            // If target is not null
             {
-                var directionToTarget = aimC.weaponBase.position - aimC.target.position;
-                var angle = Vector3.Angle(aimC.weaponBase.forward, directionToTarget);                      // Calculate angle between weaponbase and other ship
-                
-                var dist = Vector3.Distance(aimC.weaponBase.position, aimC.target.position);                // Calculate distance between weaponbase and other ship
-                bool withinRange = false;
-                if (dist < maxDistance)                                                                     // Is within distance if distance is < maxDistance
-                {
-                    withinRange = true;
-                }
-                
+                var angle = CalculateAngle(aimC.weaponBase, aimC.target);               // Calculate angle between weaponbase and other ship
+
+                var dist = CalculateDistance(aimC.weaponBase, aimC.target);             // Calculate distance between weaponbase and other ship
+
                 /*
-                 * If distance within range
-                 * If angle within minRange and maxRange
-                 * If target.tag is not waypointTag
-                 */
-                if (withinRange && Mathf.Abs(angle) > targetInRangeC.minRange && Mathf.Abs(angle) < targetInRangeC.maxRange && aimC.target.tag != waypointTag)
+                * If distance within range
+                * If angle within minRange and maxRange
+                * If target.tag is not waypointTag
+                */
+                if (dist < maxDistance && CheckAngle(angle, targetInRangeC.minRange, targetInRangeC.maxRange) && aimC.target.tag != waypointTag)                                                                     // Is within distance if distance is < maxDistance
                 {
+                 
                     targetInRangeC.isInRange = true;
                 }
                 else
@@ -52,6 +47,32 @@ public class TargetInRangeSystem : ComponentSystem
                     targetInRangeC.isInRange = false;
                 }
             }
+        }
+    }
+
+    // Calculate angle between two positions
+    float CalculateAngle(Transform weaponBase, Transform target)
+    {
+        var directionToTarget = weaponBase.position - target.position;
+        return Vector3.Angle(weaponBase.forward, directionToTarget);
+    }
+
+    // Calculate distance between two positions
+    float CalculateDistance(Transform weaponBase, Transform target)
+    {
+        return Vector3.Distance(weaponBase.position, target.position);
+    }
+
+    // Check if an angle is between two values
+    bool CheckAngle(float angle, float minAngle, float maxAngle)
+    {
+        if (Mathf.Abs(angle) > minAngle && Mathf.Abs(angle) < maxAngle)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

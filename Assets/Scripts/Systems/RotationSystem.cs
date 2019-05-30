@@ -27,12 +27,17 @@ public class RotationSystem : ComponentSystem
             var transform = components.transform[i];
 
             // Functionality
-            if (rotationC.target)                                                                                                   // If target is not null
+            if (rotationC.target)                                                                                   // If target is not null
             {
-                var pos = (rotationC.target.position - transform.position) + rotationC.target.forward;                              // Get position of target if position of this transform was (0, 0, 0)
-                Quaternion targetRotation = Quaternion.LookRotation(pos);                                                           // Set the rotation from (0, 0, 0) to pos
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationC.rotationSpeed * deltaTime);     // Rotate towards target rotation over time
+                RotateTransform(transform, rotationC.target, rotationC.rotationSpeed, deltaTime);
             }
         }
+    }
+
+    void RotateTransform(Transform transform, Transform target, float rotationSpeed, float deltaTime)
+    {
+        var pos = (target.position - transform.position) + target.forward;                                          // Get position of target if position of this transform was (0, 0, 0)
+        Quaternion targetRotation = Quaternion.LookRotation(pos);                                                   // Set the rotation from (0, 0, 0) to pos
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * deltaTime);       // Rotate towards target rotation over time
     }
 }

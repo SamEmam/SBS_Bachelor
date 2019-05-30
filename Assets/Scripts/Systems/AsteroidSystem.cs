@@ -41,11 +41,16 @@ public class AsteroidSystem : ComponentSystem
                 if (!asteroidC.hasSetSize)                  
                 {
                     asteroidC.hasSetSize = true;                                            // Update hasSetSize boolean
-                    float size = Random.Range(asteroidC.minSize, asteroidC.maxSize);        // Set float size to a random value between min-max float
-                    transform.localScale = new Vector3(size, size, size);                   // Set the scale to a new vector 3 with size
+                    RandomizeSize(asteroidC.minSize, asteroidC.maxSize, transform);
                 }
                 counter++;                                                                  // Count up for each asteroid
             }
         }
+    }
+
+    void RandomizeSize(float minSize, float maxSize, Transform transform)
+    {
+        float size = Random.Range(minSize, maxSize);                            // Set float size to a random value between min-max float
+        transform.localScale = new Vector3(size, size, size);                   // Set the scale to a new vector 3 with size
     }
 }

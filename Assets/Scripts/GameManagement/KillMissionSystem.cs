@@ -27,19 +27,19 @@ public class KillMissionSystem : ComponentSystem
             var gameManager = components.GameManager[i];
 
             // Functionality
-            if (killMissionC.cooldownBeforeSystemStart > 0)
+            if (killMissionC.cooldownBeforeCheck > 0)
             {
-                killMissionC.cooldownBeforeSystemStart -= Time.deltaTime;
+                killMissionC.cooldownBeforeCheck -= Time.deltaTime;
                 return;
             }
             if (shipCounterC.playersAlive <= 0)
             {
-                killMissionC.cooldownBeforeSystemStart = float.MaxValue;
+                killMissionC.cooldownBeforeCheck = float.MaxValue;
                 gameManager.GameIsLost = true;
             }
             else if (shipCounterC.enemiesAlive <= 0)
             {
-                killMissionC.cooldownBeforeSystemStart = float.MaxValue;
+                killMissionC.cooldownBeforeCheck = float.MaxValue;
                 gameManager.GameIsWon = true;
 
             }

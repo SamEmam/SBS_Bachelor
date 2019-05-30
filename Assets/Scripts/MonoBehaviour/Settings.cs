@@ -16,4 +16,9 @@ public class Settings : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("Currency", 500);
     }
+
+    public void AddCurrency()
+    {
+        PlayerPrefs.SetInt("Currency", PlayerPrefs.GetInt("Currency") + 1000);
+    }
 }

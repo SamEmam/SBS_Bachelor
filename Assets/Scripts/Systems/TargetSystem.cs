@@ -16,7 +16,6 @@ public class TargetSystem : ComponentSystem
     }
 
     [Inject] private Components components;
-    // private Transform lastEnemy;
 
     protected override void OnUpdate()
     {
@@ -33,6 +32,7 @@ public class TargetSystem : ComponentSystem
 
             var factionC = em.GetComponentData<FactionData>(entity);
 
+            // Reset temp targeted by amount to zero
             targetC.tempTargetedBy = 0;
             
             // Other ship
@@ -46,72 +46,117 @@ public class TargetSystem : ComponentSystem
 
                 var otherFactionC = em.GetComponentData<FactionData>(otherEntity);
 
+                // Reset enemyScore to max int
                 targetC.enemyScore = int.MaxValue;
 
                 // Functionality
-                var dist = Vector3.Distance(transform.position, otherTransform.position);                               // Calculate distance between this ship and other ship
-                bool withinRange = false;
-                if (dist < targetC.maxDistance)                                                                         // Check if within maxDistance
+                var dist = CalculateDistance(transform, otherTransform);
+
+                // Check if within maxDistance
+                if (dist < targetC.maxDistance)                                                                     
                 {
-                    withinRange = true;
-                }
-                
-                // Check if this ship is not equal to other ship and faction is not equal
-                /*
-                 * If distance within range
-                 * And this ship is not other ship
-                 * And this ship is close enough to waypoint
-                 * And this faction is not otherFaction
-                 * And this tag is not other tag
-                 */
-                if (withinRange && transform != otherTransform && targetC.isCloseEnoughToWaypoint)
-                {
-                    if (factionC.faction != otherFactionC.faction && transform.tag != otherTransform.tag)
+
+                    if (FactionCheck(
+                        transform, otherTransform,
+                        factionC.faction, otherFactionC.faction,
+                        transform.tag, otherTransform.tag,
+                        targetC.isCloseEnoughToWaypoint))
                     {
-                        if (otherFactionC.faction == FactionEnum.Objective)                                     // Check if target is Objective and deduct score
-                        {
-                            targetC.enemyScore -= 2000;
-                        }
 
-                        if (rotationC.target == otherRotationC.target)                                          // Check if targeted by other ship, deduct score, and +1 to ships targeted by
-                        {
-                            targetC.enemyScore -= 1000;
-                            targetC.tempTargetedBy++;
-                        }
+                        ObjectiveCheck(otherFactionC.faction, targetC.enemyScore, 2000);
 
-                        
-                        targetC.enemyScore -= targetC.targetedBy * 200;                                         // Check targeted by amount and deduct score
+                        TargetedByCheck(transform, otherRotationC.target, targetC.enemyScore, targetC.tempTargetedBy, 1000);
 
-                        
-                        if (dist < 50)                                                                          // Check distance between this ship and other ship, and deduct score
-                        {
-                            targetC.enemyScore -= (int)(dist * 10);
-                        }
-                        else if (dist < 100)
-                        {
-                            targetC.enemyScore -= (int)(dist * 4);
-                        }
-                        else if (dist < 300)
-                        {
-                            targetC.enemyScore -= (int)(dist / 2);
-                        }
-                        else
-                        {
-                            targetC.enemyScore -= (int)(dist * 2);
-                        }
-                        
-                        
-                        if (targetC.enemyScore >= targetC.targetScore)                                          // Set new target if score of othership is higher than current target
-                        {
-                            targetC.targetScore = targetC.enemyScore;
-                            rotationC.target = otherTransform;
-                        }
+                        // Check targeted by amount and deduct score
+                        targetC.enemyScore -= targetC.targetedBy * 200;
+
+                        DistanceCheck(dist, targetC.enemyScore, 50);
+
+                        UpdateTarget(targetC.enemyScore, targetC.targetScore, rotationC, otherTransform);
                     }
+
                 }
             }
-
-            targetC.targetedBy = targetC.tempTargetedBy;                                                        // Set amount of ships targeted by and reset temp counter
+            // Set amount of ships targeted by and reset temp counter
+            targetC.targetedBy = targetC.tempTargetedBy;
             targetC.targetScore = 0;
+        }
+    }
+
+    // Calculates distance between two positions
+    float CalculateDistance(Transform transform, Transform target)
+    {
+        return Vector3.Distance(transform.position, target.position);
+    }
+
+    /*
+    * If this ship is not target ship
+    * And this ship is close enough to waypoint
+    * And this faction is not target faction
+    * And this tag is not target tag
+    */
+    bool FactionCheck(Transform transform, Transform target, FactionEnum faction, FactionEnum targetFaction, string tag, string targetTag, bool closeEnoughToWaypoint)
+    {
+        if (transform != target && closeEnoughToWaypoint && faction != targetFaction && tag != targetTag)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    // Check if target is Objective and deduct penalty
+    void ObjectiveCheck(FactionEnum faction, int enemyScore, int penalty)
+    {
+        if (faction == FactionEnum.Objective)
+        {
+            enemyScore -= penalty;
+        }
+    }
+
+    // Check if targeted by other ship, deduct penalty, and +1 to ships targeted by
+    void TargetedByCheck(Transform transform, Transform targetOfTarget, int enemyScore, int targetedBy, int penalty)
+    {
+        if (transform == targetOfTarget)
+        {
+            enemyScore -= penalty;
+            targetedBy++;
+        }
+    }
+
+    // Check distance between this ship and other ship, and deduct score
+    void DistanceCheck(float distance, int enemyScore, int distanceInterval)
+    {
+        if (distance < distanceInterval)
+        {
+            enemyScore -= (int)(distance * 10);
+        }
+
+        else if (distance < distanceInterval * 2)
+        {
+            enemyScore -= (int)(distance * 4);
+        }
+
+        else if (distance < distanceInterval * 6)
+        {
+            enemyScore -= (int)(distance / 2);
+        }
+
+        else
+        {
+            enemyScore -= (int)(distance * 2);
+        }
+    }
+
+    // Set new target if score of other ship is higher than current target
+    void UpdateTarget(int enemyScore, int targetScore, RotationComponent rotationC, Transform target)
+    {
+        if (enemyScore >= targetScore)
+        {
+            targetScore = enemyScore;
+            rotationC.target = target;
         }
     }
 }

@@ -17,6 +17,7 @@ public class CollisionCleanupSystem : ComponentSystem
     {
         for (var i = 0; i < data.Length; i++)
         {
+            // Removes CollisionDataComponent from entites post updates to cleanup entities
             PostUpdateCommands.RemoveComponent<CollisionDataComponent>(data.Entity[i]);
         }
     }

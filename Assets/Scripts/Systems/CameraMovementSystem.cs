@@ -24,38 +24,48 @@ public class CameraMovementSystem : ComponentSystem
 
         foreach (var entity in GetEntities<Components>())
         {
-            // if position is less than minHeight, set height to min + 1
-            if (entity.transform.position.y <= camMinHeight)
-            {
-                entity.transform.position = new Vector3(entity.transform.position.x, camMinHeight + 1, entity.transform.position.z);
-            }
-            // if position is more than maxHeight, set height to max - 1
-            else if (entity.transform.position.y >= camMaxHeight)
-            {
-                entity.transform.position = new Vector3(entity.transform.position.x, camMaxHeight - 1, entity.transform.position.z);
-            }
+            // Keep camera within max and min height
+            KeepCameraWithinBoundary(entity.transform, camMinHeight, camMaxHeight);
 
-            // If camera under min height, check if scroll is positive
-            if (entity.transform.position.y < camMinHeight && entity.inputC.Scroll > 0)
-            {
-                scroll = entity.inputC.Scroll;
-            }
-            // If camera over max height, check if scroll is negative
-            else if (entity.transform.position.y > camMaxHeight && entity.inputC.Scroll < 0)
-            {
-                scroll = entity.inputC.Scroll;
-            }
-            // If camera within min & max height
-            else if (entity.transform.position.y > camMinHeight && entity.transform.position.y < camMaxHeight)
-            {
-                scroll = entity.inputC.Scroll;
-            }
+            scroll = SetCameraHeight(entity.transform, camMinHeight, camMaxHeight, entity.inputC.Scroll);
 
             // Move camera
-            var moveVector = new Vector3(entity.inputC.Horizontal, scroll, entity.inputC.Vertical);
-            var movePosition = entity.transform.position + moveVector.normalized * moveSpeed * deltaTime;
-
-            entity.transform.position = movePosition;
+            UpdatePosition(entity.transform, entity.inputC.Horizontal, scroll, entity.inputC.Vertical, moveSpeed, deltaTime);
         }
+    }
+
+    void KeepCameraWithinBoundary(Transform transform, int minHeight, int maxHeight)
+    {
+        // if position is less than minHeight, set height to min + 1
+        if (transform.position.y <= minHeight)
+        {
+            transform.position = new Vector3(transform.position.x, minHeight + 1, transform.position.z);
+        }
+        // if position is more than maxHeight, set height to max - 1
+        else if (transform.position.y >= maxHeight)
+        {
+            transform.position = new Vector3(transform.position.x, maxHeight - 1, transform.position.z);
+        }
+    }
+
+    float SetCameraHeight(Transform transform, int minHeight, int maxHeight, float scroll)
+    {
+        // If camera within min & max height
+        if (transform.position.y > minHeight && transform.position.y < maxHeight)
+        {
+            return scroll;
+        }
+        else
+        {
+            return 0f;
+        }
+    }
+
+    void UpdatePosition(Transform transform, float horizontal, float scroll, float vertical, float speed, float deltaTime)
+    {
+        var moveVector = new Vector3(horizontal, scroll, vertical);
+        var movePosition = transform.position + moveVector.normalized * speed * deltaTime;
+
+        transform.position = movePosition;
     }
 }

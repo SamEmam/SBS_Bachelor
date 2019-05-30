@@ -1995,7 +1995,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 25, y: 0}
-  m_SizeDelta: {x: -380.76926, y: 90}
+  m_SizeDelta: {x: -382.29816, y: 90}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &688253787
 MonoBehaviour:
@@ -2959,7 +2959,7 @@ GameObject:
   - component: {fileID: 884432919}
   - component: {fileID: 884432918}
   m_Layer: 5
-  m_Name: Text_Save
+  m_Name: Text_Cheat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3012,7 +3012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3023,7 +3023,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 30df60c1afb40f14c982331d65d3039d, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 4
     m_MaxSize: 60
     m_Alignment: 4
@@ -3032,7 +3032,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Save
+  m_Text: Get more Currency
 --- !u!222 &884432920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11222,7 +11222,7 @@ GameObject:
   - component: {fileID: 1861494406}
   - component: {fileID: 1861494405}
   m_Layer: 5
-  m_Name: Button_Save
+  m_Name: Button_Cheat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11292,7 +11292,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 395934136}
-        m_MethodName: SaveGame
+        m_MethodName: AddCurrency
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11317,7 +11317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
