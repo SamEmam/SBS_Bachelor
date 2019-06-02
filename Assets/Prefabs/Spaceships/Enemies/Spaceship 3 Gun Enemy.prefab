@@ -1965,7 +1965,6 @@ GameObject:
   - component: {fileID: 5241254309798629141}
   - component: {fileID: 5241254309798629140}
   - component: {fileID: 5241254309798629143}
-  - component: {fileID: 5241254309798629142}
   - component: {fileID: 5241254309798629145}
   - component: {fileID: 5241254309798629144}
   - component: {fileID: 5241254309798629147}
@@ -2081,20 +2080,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedData:
     health: 1500
---- !u!114 &5241254309798629142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5241254309798629121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b7361cc073d784b946fa9d80f774e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    deathState: 0
 --- !u!114 &5241254309798629145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3078,8 +3063,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 5241254309798629139}
   weaponBase: {fileID: 7275445846611304955}
+  parentRotationComponent: {fileID: 0}
 --- !u!114 &7568090882857576026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3534,8 +3519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 5241254309798629139}
   weaponBase: {fileID: 7275445847080433547}
+  parentRotationComponent: {fileID: 0}
 --- !u!114 &3809600254997645959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4044,8 +4029,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 5241254309798629139}
   weaponBase: {fileID: 7275445846074293892}
+  parentRotationComponent: {fileID: 0}
 --- !u!114 &4581059684931013996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4428,8 +4413,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 5241254309798629139}
   weaponBase: {fileID: 7275445845473580044}
+  parentRotationComponent: {fileID: 0}
 --- !u!114 &5289039908387116011
 MonoBehaviour:
   m_ObjectHideFlags: 0

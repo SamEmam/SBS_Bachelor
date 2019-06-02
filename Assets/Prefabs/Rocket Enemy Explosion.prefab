@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8992270532376601206}
   - component: {fileID: 8677599109606365062}
   - component: {fileID: 3153928143523527410}
+  - component: {fileID: 5970340314504481575}
   m_Layer: 0
   m_Name: Rocket Enemy Explosion
   m_TagString: Untagged
@@ -129,7 +130,7 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 2
+  stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -4795,3 +4796,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5970340314504481575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3207704226029624589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a12d9466b325f48a1a768de35b2faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 1.5
+  explosionPrefab: {fileID: 0}
+  lifeHasEnded: 0

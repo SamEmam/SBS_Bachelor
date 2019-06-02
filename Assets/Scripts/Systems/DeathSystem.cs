@@ -9,7 +9,6 @@ public class DeathSystem : ComponentSystem
     {
         public readonly int Length;
         public ComponentDataArray<HealthData> healthC;
-        public ComponentDataArray<DeathData> deathC;
         public EntityArray entities;
     }
 
@@ -25,15 +24,11 @@ public class DeathSystem : ComponentSystem
             var entity = components.entities[i];
 
             var healthC = em.GetComponentData<HealthData>(entity);
-            var deathC = em.GetComponentData<DeathData>(entity);
 
             // Functionality
-            if (healthC.health <= 0)                                                                        // If health is <= 0
+            if (healthC.health <= 0)                                                    // If health is <= 0
             {
-                if (deathC.deathState == DeathEnum.Alive)                                                   // If deathState is alive
-                {
-                    em.SetComponentData(entity, new DeathData { deathState = DeathEnum.Dead });             // Set the deathState to dead
-                }
+                em.AddSharedComponentData<DeathData>(entity, new DeathData{});          // Add DeathData component to entity
             }
         }
     }

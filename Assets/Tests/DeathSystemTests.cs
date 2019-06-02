@@ -11,13 +11,13 @@ public class DeathSystemTests : MonoBehaviour
     [UnityTest]
     public IEnumerator _Object_Destroyed_If_Health_Is_Zero_Test()
     {
-        var deadObject = new GameObject().AddComponent<DeathComponent>();
+        var deadObject = new GameObject().AddComponent<HealthComponent>();
         deadObject.gameObject.tag = "TestObject";
-        deadObject.gameObject.AddComponent<HealthComponent>();
         var EntityManager = World.Active.GetOrCreateManager<EntityManager>();
 
-        EntityManager.SetComponentData(deadObject.GetComponent<GameObjectEntity>().Entity, new DeathData { deathState = DeathEnum.Alive });
         EntityManager.SetComponentData(deadObject.GetComponent<GameObjectEntity>().Entity, new HealthData { health = 0 });
+
+        Assert.True(deadObject);
 
         yield return new WaitForSeconds(0.5f);
 
@@ -27,13 +27,13 @@ public class DeathSystemTests : MonoBehaviour
     [UnityTest]
     public IEnumerator _Object_Not_Destroyed_If_Health_Is_More_Than_Zero_Test()
     {
-        var deadObject = new GameObject().AddComponent<DeathComponent>();
+        var deadObject = new GameObject().AddComponent<HealthComponent>();
         deadObject.gameObject.tag = "TestObject";
-        deadObject.gameObject.AddComponent<HealthComponent>();
         var EntityManager = World.Active.GetOrCreateManager<EntityManager>();
 
-        EntityManager.SetComponentData(deadObject.GetComponent<GameObjectEntity>().Entity, new DeathData { deathState = DeathEnum.Alive });
         EntityManager.SetComponentData(deadObject.GetComponent<GameObjectEntity>().Entity, new HealthData { health = 1 });
+
+        Assert.True(deadObject);
 
         yield return new WaitForSeconds(0.5f);
 

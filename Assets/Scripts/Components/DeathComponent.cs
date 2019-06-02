@@ -4,20 +4,9 @@ using UnityEngine;
 using Unity.Entities;
 using System;
 
-[Serializable]
-public struct DeathData : IComponentData
-{
-    public DeathEnum deathState;
-}
 
-public class DeathComponent : ComponentDataProxy<DeathData>
+public struct DeathData : ISharedComponentData
 {
-    
-}
 
-public enum DeathEnum
-{
-    Alive = 0,
-    Dead = 1
 }
 

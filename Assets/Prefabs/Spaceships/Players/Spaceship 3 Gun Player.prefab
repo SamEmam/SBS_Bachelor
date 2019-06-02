@@ -2474,8 +2474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 8306486467830115088}
   weaponBase: {fileID: 6849323140851128967}
+  parentRotationComponent: {fileID: 0}
 --- !u!114 &5053658558968875706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2883,8 +2883,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 8306486467830115088}
   weaponBase: {fileID: 6849323140369707023}
+  parentRotationComponent: {fileID: 0}
 --- !u!114 &8932723175127010232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3386,8 +3386,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 8306486467830115088}
   weaponBase: {fileID: 6849323139240396280}
+  parentRotationComponent: {fileID: 0}
 --- !u!114 &1315964666215951020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4051,8 +4051,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 8306486467830115088}
   weaponBase: {fileID: 6849323139844002696}
+  parentRotationComponent: {fileID: 0}
 --- !u!114 &1819234996420843793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4782,7 +4782,6 @@ GameObject:
   - component: {fileID: 8306486467830115094}
   - component: {fileID: 8306486467830115095}
   - component: {fileID: 8306486467830115092}
-  - component: {fileID: 8306486467830115093}
   - component: {fileID: 8306486467830115098}
   - component: {fileID: 8306486467830115099}
   - component: {fileID: 8306486467830115096}
@@ -4899,20 +4898,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedData:
     health: 1500
---- !u!114 &8306486467830115093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8306486467830115074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b7361cc073d784b946fa9d80f774e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    deathState: 0
 --- !u!114 &8306486467830115098
 MonoBehaviour:
   m_ObjectHideFlags: 0

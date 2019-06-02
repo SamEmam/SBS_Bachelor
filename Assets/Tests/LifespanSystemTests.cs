@@ -11,16 +11,17 @@ public class LifespanSystemTests : MonoBehaviour
     [UnityTest]
     public IEnumerator _Object_Destroyed_If_Lifespan_Is_Zero_Test()
     {
-        var lifespanObject = new GameObject().AddComponent<LifespanComponent>();
-        lifespanObject.gameObject.tag = "TestObject";
-        lifespanObject.gameObject.AddComponent<Rigidbody>();
-        lifespanObject.gameObject.AddComponent<DeathComponent>();
+        GameObject lifespanObject = new GameObject();
+        lifespanObject.tag = "TestObject";
+        lifespanObject.AddComponent<Rigidbody>();
+        lifespanObject.AddComponent<LifespanComponent>();
+        lifespanObject.AddComponent<GameObjectEntity>();
         float lifespan = 0f;
         bool lifeHasEnded = false;
         lifespanObject.GetComponent<LifespanComponent>().Construct(lifespan, lifeHasEnded);
 
         var EntityManager = World.Active.GetOrCreateManager<EntityManager>();
-        Assert.AreEqual(EntityManager.GetComponentData<DeathData>(lifespanObject.GetComponent<GameObjectEntity>().Entity).deathState, DeathEnum.Alive);
+        Assert.True(lifespanObject);
         
         yield return new WaitForSeconds(0.5f);
         
@@ -30,16 +31,17 @@ public class LifespanSystemTests : MonoBehaviour
     [UnityTest]
     public IEnumerator _Object_Not_Destroyed_After_1frame_If_Lifespan_Is_Five_test()
     {
-        var lifespanObject = new GameObject().AddComponent<LifespanComponent>();
-        lifespanObject.gameObject.tag = "TestObject";
-        lifespanObject.gameObject.AddComponent<Rigidbody>();
-        lifespanObject.gameObject.AddComponent<DeathComponent>();
+        GameObject lifespanObject = new GameObject();
+        lifespanObject.tag = "TestObject";
+        lifespanObject.AddComponent<Rigidbody>();
+        lifespanObject.AddComponent<LifespanComponent>();
+        lifespanObject.AddComponent<GameObjectEntity>();
         float lifespan = 5f;
         bool lifeHasEnded = false;
         lifespanObject.GetComponent<LifespanComponent>().Construct(lifespan, lifeHasEnded);
 
         var EntityManager = World.Active.GetOrCreateManager<EntityManager>();
-        Assert.AreEqual(EntityManager.GetComponentData<DeathData>(lifespanObject.GetComponent<GameObjectEntity>().Entity).deathState, DeathEnum.Alive);
+        Assert.True(lifespanObject);
 
         yield return new WaitForSeconds(0.5f);
 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 259048029367974089}
   - component: {fileID: 259048029367974088}
   - component: {fileID: 259048029367974091}
-  - component: {fileID: 259048029367974090}
   - component: {fileID: 259048029367974085}
   - component: {fileID: 259048029367974084}
   - component: {fileID: 259048029367974087}
@@ -110,20 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedData:
     health: 100
---- !u!114 &259048029367974090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259048029367974109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b7361cc073d784b946fa9d80f774e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    deathState: 0
 --- !u!114 &259048029367974085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3034,8 +3019,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  parentTransform: {fileID: 259048029367974095}
   weaponBase: {fileID: 8161774320973646594}
+  parentRotationComponent: {fileID: 0}
 --- !u!114 &6316904646673444083
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -79,26 +79,6 @@ public class TargetSystemTests : MonoBehaviour
         Assert.AreEqual(testPlayerGO.GetComponent<RotationComponent>().target, testEnemyGO.transform);
     }
 
-    [UnityTest]
-    public IEnumerator _If_Two_Enemy_Ships_Then_Target_Is_Closest_Enemy_Ship_Test()
-    {
-        var testPlayerGO = Instantiate((GameObject)Resources.Load("Tests/targetSystemTestPlayerGO"));
-        var testEnemyGO1 = Instantiate((GameObject)Resources.Load("Tests/targetSystemTestEnemyGO"));
-        var testEnemyGO2 = Instantiate((GameObject)Resources.Load("Tests/targetSystemTestEnemyGO"));
-
-        testEnemyGO2.transform.position = new Vector3(350, 350, 350);
-
-        float maxDist = 100f;
-        testPlayerGO.GetComponent<TargetComponent>().Construct(maxDist);
-
-        Assert.IsNull(testPlayerGO.GetComponent<RotationComponent>().target);
-
-        yield return new WaitForSeconds(0.5f);
-
-        Assert.AreEqual(testPlayerGO.GetComponent<RotationComponent>().target, testEnemyGO1.transform);
-    }
-
-
     [TearDown]
     public void AfterEveryTest()
     {

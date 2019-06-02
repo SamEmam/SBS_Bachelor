@@ -6,34 +6,40 @@ using Unity.Entities;
 [UpdateBefore(typeof(CollisionCleanupSystem))]
 public class CollisionSystem : ComponentSystem
 {
-    struct Data
+    struct Components
     {
         public readonly int Length;
         public ComponentDataArray<HealthData> healthC;
         public ComponentDataArray<CollisionDataComponent> collisionDataC;
-        public EntityArray Entity;
+        public EntityArray entities;
     }
 
-    [Inject] Data data;
+    [Inject] Components components;
 
     protected override void OnUpdate()
     {
-        for (var i = 0; i < data.Length; i++)
+        for (var i = 0; i < components.Length; i++)
         {
             // Setup
-            var collisionDataC = data.collisionDataC[i];
+            var collisionState = components.collisionDataC[i].collisionState;
+            var otherEntity = components.collisionDataC[i].otherEntity;
+            var entity = components.entities[i];
 
-            // Check if other entity has a damage component
-            if (EntityManager.HasComponent<DamageData>(collisionDataC.otherEntity))
+            // Check if collision has just happend
+            if (collisionState == CollisionState.Enter)
             {
-                // Check if other entity is not the same faction
-                if (EntityManager.GetComponentData<FactionData>(collisionDataC.otherEntity).faction != EntityManager.GetComponentData<FactionData>(data.Entity[i]).faction)
+                // Check if other entity has a damage component
+                if (EntityManager.HasComponent<DamageData>(otherEntity))
                 {
-                    // Set the health data component of current entity to be a new new health data component with the previous health minus the damage of the other entity
-                    EntityManager.SetComponentData<HealthData>(data.Entity[i], new HealthData
+                    // Check if other entity is not the same faction
+                    if (EntityManager.GetComponentData<FactionData>(otherEntity).faction != EntityManager.GetComponentData<FactionData>(entity).faction)
                     {
-                        health = data.healthC[i].health - EntityManager.GetComponentData<DamageData>(collisionDataC.otherEntity).damage
-                    });
+                        // Set the health data component of current entity to be a new new health data component with the previous health minus the damage of the other entity
+                        EntityManager.SetComponentData<HealthData>(entity, new HealthData
+                        {
+                            health = components.healthC[i].health - EntityManager.GetComponentData<DamageData>(otherEntity).damage
+                        });
+                    }
                 }
             }
         }

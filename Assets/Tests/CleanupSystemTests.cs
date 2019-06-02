@@ -9,29 +9,33 @@ using UnityEditor;
 public class CleanupSystemTests : MonoBehaviour
 {
     [UnityTest]
-    public IEnumerator _Object_Destroyed_If_Deathstate_Is_Dead_Test()
+    public IEnumerator _Object_Destroyed_If_DeathComponent_Is_Added_Test()
     {
-        var deadObject = new GameObject().AddComponent<DeathComponent>();
+        GameObject deadObject = new GameObject();
         deadObject.gameObject.tag = "TestObject";
+
+        var entity = deadObject.AddComponent<GameObjectEntity>();
 
         var EntityManager = World.Active.GetOrCreateManager<EntityManager>();
         
-        EntityManager.SetComponentData(deadObject.GetComponent<GameObjectEntity>().Entity, new DeathData { deathState = DeathEnum.Dead });
-        
+        EntityManager.AddSharedComponentData(entity.Entity, new DeathData { });
+
+        Assert.True(deadObject);
+
         yield return null;
 
         Assert.False(deadObject);
     }
 
     [UnityTest]
-    public IEnumerator _Object_Not_Destroyed_If_Deathstate_Is_Alive_Test()
+    public IEnumerator _Object_Not_Destroyed_If_DeathComponent_Is_Not_Added_Test()
     {
-        var deadObject = new GameObject().AddComponent<DeathComponent>();
+        GameObject deadObject = new GameObject();
         deadObject.gameObject.tag = "TestObject";
 
-        var EntityManager = World.Active.GetOrCreateManager<EntityManager>();
+        var entity = deadObject.AddComponent<GameObjectEntity>();
 
-        EntityManager.SetComponentData(deadObject.GetComponent<GameObjectEntity>().Entity, new DeathData { deathState = DeathEnum.Alive });
+        Assert.True(deadObject);
 
         yield return null;
 

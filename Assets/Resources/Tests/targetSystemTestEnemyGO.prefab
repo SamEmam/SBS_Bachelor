@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2453461142029353977}
   - component: {fileID: 293569854762210273}
   - component: {fileID: 8449551503154215411}
-  - component: {fileID: 6719166195449708202}
   - component: {fileID: 3925048194363418120}
   m_Layer: 0
   m_Name: targetSystemTestEnemyGO
@@ -79,20 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6719166195449708202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881751027088188959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500ff0f920b61f7459e4aaf81b60c4e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    closestDistance: 0
 --- !u!114 &3925048194363418120
 MonoBehaviour:
   m_ObjectHideFlags: 0

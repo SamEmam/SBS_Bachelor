@@ -10,7 +10,6 @@ public class LifespanSystem : ComponentSystem
     {
         public readonly int Length;
         public ComponentArray<LifespanComponent> lifespanC;
-        public ComponentDataArray<DeathData> deathC;
         public ComponentArray<Rigidbody> rigidbody;
         public ComponentArray<Transform> transform;
         public EntityArray entities;
@@ -41,7 +40,7 @@ public class LifespanSystem : ComponentSystem
                     Explode(lifespanC.explosionPrefab, transform, rigidbody.velocity);
                 }
 
-                EntityManager.SetComponentData(entity, new DeathData { deathState = DeathEnum.Dead });          // Update the deathState
+                EntityManager.AddSharedComponentData(entity, new DeathData { });          // Update the deathState
 
             }
             else
