@@ -16,34 +16,145 @@ public class TargetSystem : ComponentSystem
     }
 
     [Inject] private Components components;
-
+    
     protected override void OnUpdate()
     {
         var em = World.Active.GetOrCreateManager<EntityManager>();
 
-        //This ship
+        var playerTargetCs = new List<TargetComponent>();
+        var playerRotationCs = new List<RotationComponent>();
+        var playerFactionCs = new List<FactionData>();
+        var playerTransforms = new List<Transform>();
+        var playerEntities = new List<Entity>();
+
+        var enemyTargetCs = new List<TargetComponent>();
+        var enemyRotationCs = new List<RotationComponent>();
+        var enemyFactionCs = new List<FactionData>();
+        var enemyTransforms = new List<Transform>();
+        var enemyEntities = new List<Entity>();
+        
+
+        // Filtering player and enemy spaceships
         for (int i = 0; i < components.Length; i++)
         {
-            // Setup
-            var entity = components.entities[i];
-            var rotationC = components.rotationC[i];
-            var targetC = components.targetC[i];
-            var transform = components.transform[i];
+            if (em.GetComponentData<FactionData>(components.entities[i]).faction == FactionEnum.Player)
+            {
+                playerTargetCs.Add(components.targetC[i]);
+                playerRotationCs.Add(components.rotationC[i]);
+                playerTransforms.Add(components.transform[i]);
+                playerEntities.Add(components.entities[i]);
+            }
+            else
+            {
 
+                enemyTargetCs.Add(components.targetC[i]);
+                enemyRotationCs.Add(components.rotationC[i]);
+                enemyTransforms.Add(components.transform[i]);
+                enemyEntities.Add(components.entities[i]);
+            }
+        }
+
+        CompareTargets(
+            playerEntities, enemyEntities,
+            playerTargetCs, enemyTargetCs,
+            playerRotationCs, enemyRotationCs,
+            playerTransforms, enemyTransforms,
+            em);
+
+        CompareTargets(
+            enemyEntities, playerEntities,
+            enemyTargetCs, playerTargetCs,
+            enemyRotationCs, playerRotationCs,
+            enemyTransforms, playerTransforms,
+            em);
+
+        //For all player spaceships compare all enemy spaceships
+        //for (int j = 0; j < playerEntities.Count; j++)
+        //{
+        //    // Setup
+        //    var entity = playerEntities[j];
+        //    var targetC = enemyTargetCs[j];
+        //    var rotationC = playerRotationCs[j];
+        //    var transform = playerTransforms[j];
+        //    var factionC = em.GetComponentData<FactionData>(entity);
+
+        //    // Reset temp targeted by amount to zero
+        //    targetC.tempTargetedBy = 0;
+            
+        //    // Other ship
+        //    for (int k = 0; k < enemyEntities.Count; k++)
+        //    {
+        //        // Setup
+        //        var otherEntity = enemyEntities[j];
+        //        var otherTargetC = enemyTargetCs[j];
+        //        var otherRotationC = enemyRotationCs[j];
+        //        var otherTransform = enemyTransforms[j];
+        //        var otherFactionC = em.GetComponentData<FactionData>(otherEntity);
+
+        //        // Reset enemyScore to max int
+        //        targetC.enemyScore = int.MaxValue;
+
+        //        // Functionality
+        //        var dist = CalculateDistance(transform, otherTransform);
+
+        //        // Check if within maxDistance
+        //        if (dist < targetC.maxDistance)                                                                     
+        //        {
+
+        //            if (FactionCheck(
+        //                transform, otherTransform,
+        //                factionC.faction, otherFactionC.faction,
+        //                transform.tag, otherTransform.tag,
+        //                targetC.isCloseEnoughToWaypoint))
+        //            {
+
+        //                ObjectiveCheck(otherFactionC.faction, targetC.enemyScore, 2000);
+
+        //                TargetedByCheck(transform, otherRotationC.target, targetC.enemyScore, targetC.tempTargetedBy, 1000);
+
+        //                // Check targeted by amount and deduct score
+        //                targetC.enemyScore -= targetC.targetedBy * 200;
+
+        //                DistanceCheck(dist, targetC.enemyScore, 50);
+
+        //                UpdateTarget(targetC.enemyScore, targetC.targetScore, rotationC, otherTransform);
+        //            }
+
+        //        }
+        //    }
+        //    // Set amount of ships targeted by and reset temp counter
+        //    targetC.targetedBy = targetC.tempTargetedBy;
+        //    targetC.targetScore = 0;
+        //}
+    }
+
+    void CompareTargets(
+            List<Entity> entities, List<Entity> otherEntities,
+            List<TargetComponent> targetCs, List<TargetComponent> otherTargetCs,
+            List<RotationComponent> rotationCs, List<RotationComponent> otherRotationCs,
+            List<Transform> transforms, List<Transform> otherTransforms,
+            EntityManager em)
+    {
+        for (int j = 0; j < entities.Count; j++)
+        {
+            // Setup
+            var entity = entities[j];
+            var targetC = targetCs[j];
+            var rotationC = rotationCs[j];
+            var transform = transforms[j];
             var factionC = em.GetComponentData<FactionData>(entity);
 
             // Reset temp targeted by amount to zero
             targetC.tempTargetedBy = 0;
-            
+
             // Other ship
-            for (int j = 0; j < components.Length; j++)
+            for (int k = 0; k < otherEntities.Count; k++)
             {
                 // Setup
-                var otherEntity = components.entities[j];
-                var otherRotationC = components.rotationC[j];
-                var otherTargetC = components.targetC[j];
-                var otherTransform = components.transform[j];
-
+                var otherEntity = otherEntities[j];
+                var otherTargetC = otherTargetCs[j];
+                var otherRotationC = otherRotationCs[j];
+                var otherTransform = otherTransforms[j];
                 var otherFactionC = em.GetComponentData<FactionData>(otherEntity);
 
                 // Reset enemyScore to max int
@@ -53,7 +164,7 @@ public class TargetSystem : ComponentSystem
                 var dist = CalculateDistance(transform, otherTransform);
 
                 // Check if within maxDistance
-                if (dist < targetC.maxDistance)                                                                     
+                if (dist < targetC.maxDistance)
                 {
 
                     if (FactionCheck(
@@ -82,6 +193,7 @@ public class TargetSystem : ComponentSystem
             targetC.targetScore = 0;
         }
     }
+
 
     // Calculates distance between two positions
     float CalculateDistance(Transform transform, Transform target)

@@ -26,11 +26,11 @@ public class CleanupSystem : ComponentSystem
             var transform = components.transform[i];
 
             var deathC = em.GetComponentData<DeathData>(entity);
-
+            
             // Functionality
             if (transform.gameObject && deathC.deathState == DeathEnum.Dead)                    // If deathState is dead, then destroy the GameObject
             {
-                Object.Destroy(transform.gameObject, 1f);
+                Object.Destroy(transform.gameObject);
             }
         }
     }

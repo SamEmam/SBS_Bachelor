@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 9202357212613208683}
   - component: {fileID: 8747299021811330708}
   - component: {fileID: 1823727244696806301}
+  - component: {fileID: 7525296429732172623}
   m_Layer: 0
   m_Name: Rocket Enemy
   m_TagString: Untagged
@@ -4850,6 +4851,20 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &7525296429732172623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3207704226029624589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b7361cc073d784b946fa9d80f774e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedData:
+    deathState: 0
 --- !u!1 &4704642794103229136
 GameObject:
   m_ObjectHideFlags: 0
