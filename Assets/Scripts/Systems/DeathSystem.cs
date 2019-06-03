@@ -22,8 +22,7 @@ public class DeathSystem : ComponentSystem
         {
             // Setup
             var entity = components.entities[i];
-
-            var healthC = em.GetComponentData<HealthData>(entity);
+            var healthC = components.healthC[i];
 
             // Functionality
             if (healthC.health <= 0)                                                    // If health is <= 0

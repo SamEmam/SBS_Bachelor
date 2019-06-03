@@ -10,8 +10,6 @@ public class LifespanSystem : ComponentSystem
     {
         public readonly int Length;
         public ComponentArray<LifespanComponent> lifespanC;
-        public ComponentArray<Rigidbody> rigidbody;
-        public ComponentArray<Transform> transform;
         public EntityArray entities;
     }
 
@@ -25,36 +23,17 @@ public class LifespanSystem : ComponentSystem
         {
             // Setup
             var lifespanC = components.lifespanC[i];
-            var rigidbody = components.rigidbody[i];
-            var transform = components.transform[i];
             var entity = components.entities[i];
 
             // Functionality
-            if (lifespanC.lifespan <= 0 && !lifespanC.lifeHasEnded)                                             // If lifespan is <= 0 and lifespan hasn't been <= 0 before
+            if (lifespanC.lifespan <= 0)                                            // If lifespan is <= 0
             {
-                lifespanC.lifeHasEnded = true;
-
-                // If object contains explosionPrefab, initiate explosion and inherit velocity
-                if (lifespanC.explosionPrefab)
-                {
-                    Explode(lifespanC.explosionPrefab, transform, rigidbody.velocity);
-                }
-
-                EntityManager.AddSharedComponentData(entity, new DeathData { });          // Update the deathState
-
+                EntityManager.AddSharedComponentData(entity, new DeathData { });    // Add death component to entity
             }
             else
             {
-                lifespanC.lifespan -= deltatime;                                                                // Count down lifespan
+                lifespanC.lifespan -= deltatime;        // Count down lifespan with time since last time it was update
             }
         }
-    }
-
-    void Explode(GameObject explosionPrefab, Transform transform, Vector3 velocity)
-    {
-        var explosion = Object.Instantiate(explosionPrefab, transform.position, transform.rotation);            // Instantiate exposion prefab
-        var explosionRB = explosion.GetComponent<Rigidbody>();                                                  // Get a reference to rigidbody of explosion
-        explosionRB.velocity = velocity;                                                                        // Inherit the velocity
-        explosionRB.angularVelocity = Vector3.zero;                                                             // Set the angular velocity to 0
     }
 }

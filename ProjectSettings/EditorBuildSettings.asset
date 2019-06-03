@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Missions/KillMission 5.unity
     guid: ac04ad0604dfb7c4f9dd53185b34ff69
+  - enabled: 1
+    path: Assets/Scenes/Performance Test.unity
+    guid: 34ab6f796cf798c4587793b69acd26de
   m_configObjects: {}

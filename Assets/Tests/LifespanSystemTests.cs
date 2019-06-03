@@ -17,8 +17,7 @@ public class LifespanSystemTests : MonoBehaviour
         lifespanObject.AddComponent<LifespanComponent>();
         lifespanObject.AddComponent<GameObjectEntity>();
         float lifespan = 0f;
-        bool lifeHasEnded = false;
-        lifespanObject.GetComponent<LifespanComponent>().Construct(lifespan, lifeHasEnded);
+        lifespanObject.GetComponent<LifespanComponent>().Construct(lifespan);
 
         var EntityManager = World.Active.GetOrCreateManager<EntityManager>();
         Assert.True(lifespanObject);
@@ -37,8 +36,7 @@ public class LifespanSystemTests : MonoBehaviour
         lifespanObject.AddComponent<LifespanComponent>();
         lifespanObject.AddComponent<GameObjectEntity>();
         float lifespan = 5f;
-        bool lifeHasEnded = false;
-        lifespanObject.GetComponent<LifespanComponent>().Construct(lifespan, lifeHasEnded);
+        lifespanObject.GetComponent<LifespanComponent>().Construct(lifespan);
 
         var EntityManager = World.Active.GetOrCreateManager<EntityManager>();
         Assert.True(lifespanObject);

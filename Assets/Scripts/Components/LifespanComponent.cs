@@ -5,14 +5,11 @@ using UnityEngine;
 public class LifespanComponent : MonoBehaviour
 {
     public float lifespan;
-    public GameObject explosionPrefab;
-    public bool lifeHasEnded = false;
-    //public ParticleSystem ObjectParticles;
+    public float updateTimeStamp;
 
     // For Unit Testing Only
-    public void Construct(float lifespan, bool lifeHasEnded)
+    public void Construct(float lifespan)
     {
         this.lifespan = lifespan;
-        this.lifeHasEnded = lifeHasEnded;
     }
 }

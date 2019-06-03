@@ -6,13 +6,13 @@ using UnityEngine.TestTools;
 using Unity.Entities;
 using UnityEditor;
 
+
 public class TargetSystemTests : MonoBehaviour
 {
     [UnityTest]
     public IEnumerator _If_No_Other_Ships_Then_Target_Is_Null_Test()
     {
         var testPlayerGO = Instantiate((GameObject)Resources.Load("Tests/targetSystemTestPlayerGO"));
-        //var testEnemyGO = Instantiate((GameObject)Resources.Load("Tests/targetSystemTestEnemyGO"));
 
         float maxDist = 100f;
         testPlayerGO.GetComponent<TargetComponent>().Construct(maxDist);
@@ -33,24 +33,6 @@ public class TargetSystemTests : MonoBehaviour
         var EntityManager = World.Active.GetOrCreateManager<EntityManager>();
 
         EntityManager.SetComponentData(testEnemyGO.GetComponent<GameObjectEntity>().Entity, new FactionData { faction = FactionEnum.Player });
-
-        float maxDist = 100f;
-        testPlayerGO.GetComponent<TargetComponent>().Construct(maxDist);
-
-        Assert.IsNull(testPlayerGO.GetComponent<RotationComponent>().target);
-
-        yield return new WaitForSeconds(0.5f);
-
-        Assert.IsNull(testPlayerGO.GetComponent<RotationComponent>().target);
-    }
-
-    [UnityTest]
-    public IEnumerator _If_Other_Ship_Is_Same_Tag_Then_Target_Is_Null_Test()
-    {
-        var testPlayerGO = Instantiate((GameObject)Resources.Load("Tests/targetSystemTestPlayerGO"));
-        var testEnemyGO = Instantiate((GameObject)Resources.Load("Tests/targetSystemTestEnemyGO"));
-
-        testEnemyGO.tag = testPlayerGO.tag;
 
         float maxDist = 100f;
         testPlayerGO.GetComponent<TargetComponent>().Construct(maxDist);

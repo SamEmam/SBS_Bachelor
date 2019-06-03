@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 1284534502966304554}
   - component: {fileID: 4786642573680010428}
   - component: {fileID: 4554340702192272203}
-  - component: {fileID: 265007747216047663}
   - component: {fileID: 2244170576794747461}
   - component: {fileID: 4571270852764127353}
   m_Layer: 0
@@ -82,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a12d9466b325f48a1a768de35b2faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 10
+  lifespan: 5
   explosionPrefab: {fileID: 3207704226029624589, guid: 497a348ea9ee1284699186f64d76d791,
     type: 3}
   lifeHasEnded: 0
@@ -169,20 +168,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   rotationSpeed: 10
---- !u!114 &265007747216047663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3207704226029624589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaaff9924c507dc4dbed48052c5fa8cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    health: 1
 --- !u!199 &2244170576794747461
 ParticleSystemRenderer:
   serializedVersion: 6

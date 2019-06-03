@@ -44,7 +44,7 @@ public class FleetManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void AddShip(int shipIndex)
+    public void BuySpaceship(int shipIndex)
     {
         if (PlayerPrefs.GetInt("Currency") >= shipCost[shipIndex])
         {
@@ -56,7 +56,7 @@ public class FleetManager : MonoBehaviour
         
     }
 
-    public void RemoveShip(int shipIndex)
+    public void SellSpaceship(int shipIndex)
     {
         int currentShipCount = PlayerPrefs.GetInt("Fleet_" + shipIndex);
         if (currentShipCount > 0)

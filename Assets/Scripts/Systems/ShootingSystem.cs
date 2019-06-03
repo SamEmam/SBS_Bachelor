@@ -35,7 +35,7 @@ public class ShootingSystem : ComponentSystem
             {
                 if (!weaponC.useLaser)
                 {
-                    ShootProjectile(weaponC.firePoints, weaponC.shotPrefab, aimC.target);
+                    Shoot(weaponC.firePoints, weaponC.shotPrefab, aimC.target);
                 }
 
                 else                                                                                            // If uses laser
@@ -59,7 +59,7 @@ public class ShootingSystem : ComponentSystem
         }
     }
 
-    void ShootProjectile(Transform[] firePoints, GameObject projectilePrefab, Transform target)
+    void Shoot(Transform[] firePoints, GameObject projectilePrefab, Transform target)
     {
         for (int j = 0; j < firePoints.Length; j++)
         {
